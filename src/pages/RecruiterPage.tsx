@@ -4,6 +4,7 @@ import { getRoles } from "../utils/roleLoader";
 import { dbService, storageService } from "../config/firebase";
 import GlassCard from "../components/GlassCard";
 import SEO from "../components/SEO";
+import { downloadMockPDF } from "../utils/pdfGenerator";
 
 export const RecruiterPage: React.FC = () => {
   const allRoles = useMemo(() => getRoles(), []);
@@ -59,15 +60,8 @@ export const RecruiterPage: React.FC = () => {
       link.download = customResume.name || `Pranil_Belge_Resume_${roleId}.pdf`;
       link.click();
     } else {
-      // Fallback text download
       const targetRole = allRoles.find(r => r.id === roleId);
-      const mockContent = `Pranil Belge - ${targetRole?.title} Resume\nGenerated dynamically on the career portal.`;
-      const blob = new Blob([mockContent], { type: "text/plain" });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `Pranil_Belge_${roleId}_Resume.txt`;
-      link.click();
+      downloadMockPDF(roleId, targetRole?.title || "Professional");
     }
   };
 

@@ -7,6 +7,7 @@ import type { RoleConfig } from "../utils/roleLoader";
 import { dbService, storageService } from "../config/firebase";
 import GlassCard from "../components/GlassCard";
 import SEO from "../components/SEO";
+import { downloadMockPDF } from "../utils/pdfGenerator";
 
 export const ProfilePage: React.FC = () => {
   const { roleId } = useParams<{ roleId: string }>();
@@ -94,14 +95,7 @@ export const ProfilePage: React.FC = () => {
     // Determine download link
     const downloadUrl = customResume?.downloadUrl || "#";
     if (downloadUrl === "#") {
-      // Mock Resume file generation
-      const mockContent = `Pranil Belge - ${role.title} Resume\nGenerated automatically via Personal Career Platform.`;
-      const blob = new Blob([mockContent], { type: "text/plain" });
-      const url = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = url;
-      link.download = `Pranil_Belge_${role.id}_Resume.txt`;
-      link.click();
+      downloadMockPDF(role.id, role.title);
     } else {
       const link = document.createElement("a");
       link.href = downloadUrl;
