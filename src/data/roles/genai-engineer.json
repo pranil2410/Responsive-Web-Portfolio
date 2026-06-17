@@ -3,148 +3,192 @@
   "name": "Pranil Belge",
   "title": "GenAI / AI Engineer",
   "roleIcon": "Cpu",
-  "summary": "Specialist AI Engineer focused on developing and implementing generative AI applications. Expert in prompt engineering, designing Retrieval-Augmented Generation (RAG) architectures, orchestrating multi-agent workflows, and fine-tuning/integrating commercial and open-source Large Language Models (LLMs) like OpenAI, Anthropic, and Llama.",
+  "summary": "Final-year Computer Engineering student (graduating June 2026) with hands-on experience in Generative AI, LLM API integration, Prompt Engineering, NLP, and Python-based ML workflows. Built AI-powered applications including an LLM-integrated civic-tech platform, a multi-turn ChatGPT API chatbot, and a GenAI-assisted analytics pipeline. Completed Google AI-ML and Altair Data Science virtual internships. Familiar with supervised learning, model evaluation, scikit-learn, RAG concepts, and AI product development. Eager to develop and deploy innovative generative AI solutions at Hexaware.",
   "meta": {
     "title": "Pranil Belge | GenAI Engineer Portfolio",
-    "description": "Explore GenAI projects, Prompt Engineering sandboxes, and AI architecture diagrams of Pranil Belge, specializing in LLMs, RAG, and Agentic workflows.",
-    "keywords": ["GenAI Engineer", "AI Engineer", "LLM APIs", "RAG", "Prompt Engineering", "OpenAI", "Vector Databases", "Agentic Systems"]
+    "description": "Explore GenAI / AI Engineer projects, Prompt Engineering showcases, and AI internships of Pranil Belge, specializing in LLMs, prompt designs, and RAG.",
+    "keywords": ["GenAI Engineer", "AI Engineer", "LLMs", "Prompt Engineering", "ChatGPT API", "NLP", "Machine Learning", "Hexaware AI"]
   },
   "skills": [
-    { "name": "LLM APIs (OpenAI / Anthropic / Gemini)", "category": "AI & LLMs", "level": 95 },
-    { "name": "Prompt Engineering & Few-Shot Design", "category": "AI & LLMs", "level": 96 },
-    { "name": "RAG Architectures (LangChain / LlamaIndex)", "category": "RAG & Vector DBs", "level": 90 },
-    { "name": "Vector Databases (Pinecone / Chroma / pgvector)", "category": "RAG & Vector DBs", "level": 88 },
-    { "name": "Python (PyTorch / Hugging Face)", "category": "Languages & Frameworks", "level": 82 },
-    { "name": "Agentic Workflows & Tool Use (Function Calling)", "category": "AI & LLMs", "level": 92 },
-    { "name": "LLM Guardrails & Evaluation", "category": "AI & LLMs", "level": 80 },
-    { "name": "API Development (FastAPI / Node.js)", "category": "Languages & Frameworks", "level": 85 }
+    { "name": "Generative AI & LLMs (OpenAI, Anthropic)", "category": "AI & GenAI", "level": 94 },
+    { "name": "Prompt Engineering & Template Design", "category": "AI & GenAI", "level": 96 },
+    { "name": "RAG Concepts & Chatbot Development", "category": "AI & GenAI", "level": 90 },
+    { "name": "NLP Techniques & Vector Embeddings", "category": "AI & GenAI", "level": 85 },
+    { "name": "Machine Learning (Scikit-learn, ML Pipelines)", "category": "Machine Learning", "level": 88 },
+    { "name": "Python (Pandas, NumPy, Scikit-learn)", "category": "Programming", "level": 90 },
+    { "name": "JavaScript & ReactJS", "category": "Programming", "level": 82 },
+    { "name": "SQL (MySQL, PostgreSQL, SQLite)", "category": "Data & Querying", "level": 85 }
   ],
   "projects": [
     {
       "id": "election-guide-ai",
       "title": "Election Guide AI",
-      "description": "A RAG-based Generative AI assistant providing transparent answers on political campaigns, using a secure vector store to source official candidate declarations.",
-      "techStack": ["Gemini Pro", "LangChain", "ChromaDB", "FastAPI", "React"],
+      "description": "A civic-tech web application integrating the ChatGPT API for a conversational AI chatbot guiding users through India's election process, with voting eligibility checkers and timeline trackers.",
+      "techStack": ["ReactJS", "JavaScript", "LLM API (ChatGPT)", "Prompt Engineering", "REST APIs"],
       "image": "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=600&auto=format&fit=crop",
-      "github": "https://github.com/pranil2410/election-guide-ai",
-      "demo": "https://election-guide-ai.example.com",
+      "github": "https://github.com/pranil2410",
+      "demo": "https://github.com/pranil2410",
       "achievements": [
-        "Constructed a hybrid search (semantic + keyword) pipeline resulting in 92% answer relevance scores.",
-        "Integrated NeMo Guardrails to prevent political bias or off-topic conversational drift."
+        "Built a civic-tech web application integrating the ChatGPT API for a conversational AI chatbot guiding users through India’s election process.",
+        "Implemented voting eligibility checker, election timeline tracker, and AI-driven Q&A module for Hack2Skill BuildWithAI hackathon.",
+        "Designed prompt templates for consistent, context-aware responses, demonstrating practical NLP and prompt engineering."
       ],
-      "problemSolved": "Raw LLMs can confidently hallucinate election facts; sourcing official PDFs via RAG guarantees verifiable references.",
-      "learnings": "Gained massive experience in parsing messy multi-column PDFs, managing vector overlap chunks, and evaluating retrieval metrics."
+      "problemSolved": "Voters lacked a consolidated, interactive Q&A assistant to check local eligibility, schedules, and policy stances.",
+      "learnings": "Acquired deep skills in handling streaming state variables, context-window compression, and system prompt framing."
     },
     {
-      "id": "ai-chatbot",
-      "title": "Enterprise Customer Support Agent",
-      "description": "An autonomous AI support agent that utilizes function calling to query order databases, process returns, and draft customized refund approvals.",
-      "techStack": ["GPT-4o", "LangGraph", "FastAPI", "PostgreSQL", "React"],
+      "id": "ai-chatbot-chatgpt",
+      "title": "AI Chatbot using ChatGPT API",
+      "description": "A multi-turn conversational AI chatbot using the ChatGPT API with engineered prompt templates for context-aware dialogue management and rate-limit handling.",
+      "techStack": ["Python", "OpenAI API", "Prompt Engineering"],
       "image": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=600&auto=format&fit=crop",
-      "github": "https://github.com/pranil2410/ai-chatbot",
-      "demo": "https://ai-support-demo.example.com",
+      "github": "https://github.com/pranil2410/AI-Chatbot-using-ChatGPT-API",
+      "demo": "https://github.com/pranil2410/AI-Chatbot-using-ChatGPT-API",
       "achievements": [
-        "Built a stateful multi-agent architecture handling escalation paths to human agents.",
-        "Decreased average ticket resolution times by 40% for common order status inquiries."
+        "Built a multi-turn conversational AI chatbot using the ChatGPT API with engineered prompt templates for context-aware dialogue management.",
+        "Implemented conversation flow management, API integration, error handling, and rate-limit management."
       ],
-      "problemSolved": "Standard chatbots can only answer static FAQs; this agent executes database writes securely based on customer intent.",
-      "learnings": "Developed advanced skills in state tracking, tool fallback policies, and securing prompt inputs against injection attacks."
+      "problemSolved": "Standard chat endpoints default to single-turn responses; this project manages stateful multi-turn history with token optimization.",
+      "learnings": "Engineered production-ready code patterns for API error handling and rate-limit retry policies."
     },
     {
       "id": "healthcare-risk-stratification",
-      "title": "Clinical Summary Summarizer & Analyzer",
-      "description": "A GenAI pipeline that ingests long, unstructured electronic health records (EHR) and generates structured clinical briefs for doctor review.",
-      "techStack": ["Claude 3.5 Sonnet", "Structured Outputs", "Pydantic", "FastAPI"],
+      "title": "Healthcare Risk Stratification System",
+      "description": "An ML patient classification model on 5,000+ records applying feature engineering and ROC-AUC evaluation to group chronic risk tiers.",
+      "techStack": ["Python", "Scikit-learn", "Pandas", "NumPy"],
       "image": "https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?q=80&w=600&auto=format&fit=crop",
-      "github": "https://github.com/pranil2410/healthcare-risk",
-      "demo": "https://clinical-summarizer.example.com",
+      "github": "https://github.com/pranil2410",
+      "demo": "https://github.com/pranil2410",
       "achievements": [
-        "Enforced strict JSON structures matching medical compliance regulations via Pydantic parsing.",
-        "Created an evaluation framework comparing summary accuracy against doctor-written summaries."
+        "Developed an ML-based patient risk classification model on 5,000+ records.",
+        "Applied feature engineering and ROC-AUC evaluation to stratify risk tiers, automating anomaly detection to reduce manual check overhead."
       ],
-      "problemSolved": "Doctors spend hours reading scattered medical charts; a structured brief reduces review times by 65%.",
-      "learnings": "Deepened understanding of prompt optimization for precision summaries and parsing complex XML/JSON medical trees."
+      "problemSolved": "Hospitals waste resources on reactive care; automated patient risk classification allows proactive outreach.",
+      "learnings": "Learned to evaluate feature importances and perform robust data validation before feeding ML model pipelines."
     },
     {
-      "id": "genai-analytics-pipeline",
-      "title": "LLM Analytics & Logging Pipeline",
-      "description": "A developer platform to monitor, log, and analyze LLM API costs, token usage, latency distribution, and semantic cache hit rates.",
-      "techStack": ["Python", "Redis Cache", "ClickHouse", "FastAPI", "Tailwind CSS"],
-      "image": "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=600&auto=format&fit=crop",
-      "github": "https://github.com/pranil2410/google-ads-analytics",
-      "demo": "https://llm-analytics.example.com",
+      "id": "google-ads-diagnostic",
+      "title": "Google Ads Campaign Diagnostic & Performance Analysis",
+      "description": "An end-to-end pipeline evaluating ad metrics (CTR, CPC, ROAS), automating anomaly scoring and cost performance diagnostics.",
+      "techStack": ["Python", "SQL", "Pandas"],
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop",
+      "github": "https://github.com/pranil2410",
+      "demo": "https://github.com/pranil2410",
       "achievements": [
-        "Implemented semantic caching using Redis vector similarity, reducing API expenditures by 30%.",
-        "Wrote asynchronous logging middleware capable of processing 1,000 requests per second."
+        "Built an end-to-end pipeline to evaluate Google Ads metrics and detect anomalies.",
+        "Optimised SQL queries for large dataset processing and surfaced root-cause insights efficiently."
       ],
-      "problemSolved": "LLM calls are expensive and opaque; developers need granular tracking of prompt tokens, completion tokens, and latency.",
-      "learnings": "Understood the trade-offs of semantic similarity thresholds and learned to run high-throughput async log collections."
+      "problemSolved": "Campaign spend data is too complex to audit manually for anomalies.",
+      "learnings": "Acquired deep understanding of database schema joining and SQL performance tuning."
     }
   ],
   "promptShowcase": [
     {
-      "name": "SQL Code Generator",
-      "systemPrompt": "You are an expert SQL translator. Convert the user's natural language request into a standard PostgreSQL query. Do not explain the code. Return ONLY valid SQL block.",
-      "userInput": "Find the average order value for customers who signed up in 2025 and spent more than $500 in total.",
-      "output": "SELECT AVG(order_value) AS average_order_value\nFROM orders o\nJOIN customers c ON o.customer_id = c.id\nWHERE EXTRACT(YEAR FROM c.signup_date) = 2025\nGROUP BY o.customer_id\nHAVING SUM(o.order_value) > 500;",
-      "concept": "System Prompting & Constraint Enforcement"
+      "name": "Civic Election Advisor",
+      "systemPrompt": "You are a civic advisor chatbot. Provide neutral, factual information about elections. Keep answers concise. Do not express personal opinions.",
+      "userInput": "Am I eligible to vote if I am 17 years old but turning 18 next month?",
+      "output": "Under Indian election guidelines, you must be 18 years of age on or before the qualifying date (typically January 1st of the revision year) to register. If you turn 18 next month, you can pre-submit your registration form, but you will only be officially eligible to vote once registered after your 18th birthday.",
+      "concept": "Civic Q&A Prompt Design"
     },
     {
-      "name": "Medical Brief Structurer",
-      "systemPrompt": "You are a clinical assistant. Extract the patient's conditions and allergies from the text. Return a JSON object with keys: 'conditions' (list of strings) and 'allergies' (list of strings).",
-      "userInput": "Patient is a 45-year-old female presenting with asthma. Patient reports skin hives when taking penicillin. No other known food or drug allergies.",
-      "output": "{\n  \"conditions\": [\"Asthma\"],\n  \"allergies\": [\"Penicillin\"]\n}",
-      "concept": "Structured Output & JSON Constraints"
+      "name": "Chatbot Dialog Management Prompt",
+      "systemPrompt": "You are a stateful assistant. Summarize the user conversation history and extract their target action. Return a JSON structure.",
+      "userInput": "User: I need to refund my order. Assistant: What is the ID? User: It is order #5829.",
+      "output": "{\n  \"historySummary\": \"User wants to initiate a refund for order #5829.\",\n  \"targetAction\": \"REFUND_REQUEST\",\n  \"targetId\": \"5829\"\n}",
+      "concept": "Context-Aware System Prompts"
     }
   ],
   "workflows": [
     {
-      "title": "Retrieval-Augmented Generation (RAG) Flow",
-      "description": "How the system searches documents and feeds them to the LLM to get accurate, grounded answers.",
+      "title": "Multi-turn Chatbot Session Flow",
+      "description": "How the ChatGPT API manages stateful, context-aware user conversations.",
       "steps": [
-        { "name": "Query Ingestion", "detail": "User asks a question: 'Who won the local district election in 2025?'" },
-        { "name": "Embedding Generation", "detail": "The query is converted into a high-dimensional vector using text-embedding-3-small." },
-        { "name": "Vector Search", "detail": "Query vector is compared against document chunks stored in Pinecone vector database." },
-        { "name": "Context Assembly", "detail": "Top 3 relevant document chunks are retrieved and injected into the system prompt." },
-        { "name": "LLM Synthesis", "detail": "Claude or Gemini synthesizes the final response using the retrieved text chunks as ground truth." }
+        { "name": "Message Ingestion", "detail": "User submits text: 'My order #5829 hasn't arrived.'" },
+        { "name": "Context Retrieval", "detail": "Retrieves the previous 4 chat history turns from browser state." },
+        { "name": "Prompt Formatting", "detail": "Merges system prompts, chat history, and the new query into a single array payload." },
+        { "name": "API Dispatch", "detail": "Sends payload to OpenAI/ChatGPT endpoint with error catching and retry limits." },
+        { "name": "Response Stream", "detail": "Parses chunk elements dynamically to render typewriter feedback." }
       ]
     },
     {
-      "title": "Agentic Tool Use Workflow",
-      "description": "How an AI agent decides when to search a database or call a function versus when to answer directly.",
+      "title": "ML Pipeline Training Workflow",
+      "description": "How clinical EHR datasets are validated and fed into classifier models.",
       "steps": [
-        { "name": "User Request", "detail": "User asks: 'Refund my last order #4829'" },
-        { "name": "Intent Classification", "detail": "Agent parses request and identifies 'Refund' intent." },
-        { "name": "Function Discovery", "detail": "Agent checks available tools and finds 'get_order_details(order_id)' and 'process_refund(order_id)'." },
-        { "name": "Tool Execution", "detail": "Agent executes the SQL database lookup. Verifies order is within eligible refund window." },
-        { "name": "Write Operation", "detail": "Agent invokes the refund script, gets confirmation ID, and drafts final response to user." }
+        { "name": "Data Ingestion", "detail": "Loads 5,000+ EHR records via Pandas from local database." },
+        { "name": "Anomaly Check", "detail": "Automated data validation flags null values and formats age/risk columns." },
+        { "name": "Feature Engineering", "detail": "One-hot encodes categorical values and normalizes numerical measurements." },
+        { "name": "Model Training", "detail": "Trains an ML classifier in scikit-learn using train-test splits." },
+        { "name": "Evaluation", "detail": "Logs ROC-AUC, precision, recall scores, and plots confusion matrix." }
       ]
     }
   ],
   "experience": [
     {
-      "role": "GenAI Systems Engineer",
-      "company": "Cognizant Technology Solutions",
-      "period": "2024 - Present",
-      "description": "Pioneered LLM agent developments and RAG pipelines for enterprise clients.",
+      "role": "AI/ML Virtual Intern",
+      "company": "Google (via EduSkills)",
+      "period": "Remote | 2024",
+      "description": "Explored end-to-end ML workflows including data preprocessing, feature selection, model training, and evaluation using Python and scikit-learn.",
       "achievements": [
-        "Designed a custom corporate intelligence RAG answering system used by 200+ employees, saving 1.5 hours of search time per employee daily.",
-        "Evaluated model performance and prompt drift using MLflow and LangSmith, saving $8,000/month in API costs."
+        "Explored end-to-end ML workflows including data preprocessing, feature selection, and model training.",
+        "Applied supervised learning concepts for classification tasks and evaluated ROC-AUC and accuracy.",
+        "Gained exposure to Google's AI tools, reinforcing foundational GenAI and ML knowledge."
+      ]
+    },
+    {
+      "role": "Virtual GenAI / Data Analyst Intern",
+      "company": "Tata – GenAI-Powered Data Analytics Simulation (via Forage)",
+      "period": "Remote | 2024",
+      "description": "Simulated a GenAI-assisted analytics pipeline; applied LLM-based tools to automate data interpretation.",
+      "achievements": [
+        "Simulated a GenAI-assisted analytics pipeline using LLM tools to automate data interpretation.",
+        "Built Power BI dashboards with DAX measures to deliver actionable business insights."
+      ]
+    },
+    {
+      "role": "Virtual Data Analyst Intern",
+      "company": "Deloitte – Data Analytics Consulting Simulation (via Forage)",
+      "period": "Remote | 2024",
+      "description": "Performed EDA and anomaly detection on client datasets using Python; produced structured analytical reports.",
+      "achievements": [
+        "Performed EDA and anomaly detection using Python.",
+        "Delivered clear written findings to non-technical stakeholders, showing strong communication discipline."
+      ]
+    },
+    {
+      "role": "Data Science Virtual Intern",
+      "company": "Altair (via EduSkills)",
+      "period": "Remote | 2024",
+      "description": "Applied data cleaning, visualisation, and predictive analytics on real-world datasets using Altair tools.",
+      "achievements": [
+        "Applied data cleaning, visualisation, and predictive analytics on real-world datasets.",
+        "Developed ability to make data-driven decisions independently with limited oversight."
       ]
     }
   ],
   "certifications": [
     {
-      "name": "DeepLearning.AI Generative AI with LLMs",
-      "issuer": "DeepLearning.AI (Coursera)",
+      "name": "Google AI-ML Virtual Internship & Altair Data Science Master Virtual Internship",
+      "issuer": "Google / Altair (via EduSkills)",
       "date": "2024",
-      "credentialId": "DLAI-GENAI-1010"
+      "credentialId": "EDUSKILLS-2024-AI"
     },
     {
-      "name": "Pinecone Vector Database Specialist",
-      "issuer": "Pinecone Academy",
+      "name": "Tata GenAI-Powered Data Analytics & Deloitte Consulting",
+      "issuer": "Forage",
       "date": "2024",
-      "credentialId": "PINECONE-VDB-4433"
+      "credentialId": "FORAGE-GENAI-24"
+    },
+    {
+      "name": "Introduction to Generative AI",
+      "issuer": "Google Cloud",
+      "date": "2024",
+      "credentialId": "GC-GENAI-101"
+    },
+    {
+      "name": "Data Analytics (SQL, Power BI, Tableau)",
+      "issuer": "Tutedude",
+      "date": "2026",
+      "credentialId": "TD-DA-2026"
     }
   ]
 }

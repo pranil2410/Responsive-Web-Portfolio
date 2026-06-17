@@ -1,128 +1,163 @@
 {
   "id": "software-developer",
   "name": "Pranil Belge",
-  "title": "Software Developer",
+  "title": "Software Developer (QA & Testing Focus)",
   "roleIcon": "Code",
-  "summary": "Full-stack Software Developer focused on building clean, performance-optimized, and scalable web solutions. Skilled in modern JavaScript frameworks, TypeScript, and cloud services, with a strong background in combining AI models with web interfaces to deliver seamless user experiences.",
+  "summary": "Motivated final-year Computer Engineering student (graduating June 2026) with hands-on experience in Python, SQL, and structured analytical workflows. Familiar with software testing concepts, defect tracking, documentation, and QA processes. Built 8+ software and data projects demonstrating attention to detail, structured reporting, and methodical problem-solving. Eager to contribute to testing and validation of medical instruments and software systems as an Apprentice Software Engineer at Alcon.",
   "meta": {
     "title": "Pranil Belge | Software Developer Portfolio",
-    "description": "Explore Software Developer projects, certifications, and experience of Pranil Belge, specializing in React, TypeScript, and AI integrations.",
-    "keywords": ["Software Developer", "ReactJS", "TypeScript", "Node.js", "Vite", "Tailwind CSS", "Web Development"]
+    "description": "Explore Software Developer and QA/Testing projects, certifications, and experience of Pranil Belge, specializing in Python, manual/automated testing, and SQL.",
+    "keywords": ["Software Developer", "QA Engineer", "Software Testing", "Python", "SQL", "Apprentice Software Engineer", "Test Case Simulator"]
   },
   "skills": [
-    { "name": "ReactJS / Next.js", "category": "Frontend", "level": 92 },
-    { "name": "TypeScript", "category": "Frontend", "level": 88 },
-    { "name": "Tailwind CSS", "category": "Frontend", "level": 95 },
-    { "name": "Node.js / Express", "category": "Backend", "level": 82 },
-    { "name": "Python", "category": "Languages", "level": 80 },
-    { "name": "Firebase / Firestore", "category": "Database & Cloud", "level": 85 },
-    { "name": "RESTful APIs", "category": "Backend", "level": 90 },
-    { "name": "Git & CI/CD", "category": "DevOps", "level": 85 }
+    { "name": "Manual Testing & QA Concepts", "category": "Testing & QA", "level": 92 },
+    { "name": "Test Case Design & Defect Tracking", "category": "Testing & QA", "level": 90 },
+    { "name": "System Level Validation & Reporting", "category": "Testing & QA", "level": 88 },
+    { "name": "Python (Pandas, NumPy, Scikit-learn)", "category": "Programming", "level": 85 },
+    { "name": "JavaScript (ES6+) & HTML5/CSS3", "category": "Programming", "level": 80 },
+    { "name": "SQL (MySQL, PostgreSQL, SQLite)", "category": "Databases", "level": 85 },
+    { "name": "Git & GitHub", "category": "Tools", "level": 88 },
+    { "name": "OOP, DSA, SDLC (Agile)", "category": "Concepts", "level": 82 }
   ],
   "projects": [
     {
+      "id": "test-case-simulator",
+      "title": "Software Test Case Management Simulator",
+      "description": "A Python-based tool to simulate test case management workflows: creating, executing, logging, and tracking test cases with pass/fail/blocked status across functional modules.",
+      "techStack": ["Python", "Excel", "CSV", "Pandas"],
+      "image": "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?q=80&w=600&auto=format&fit=crop",
+      "github": "https://github.com/pranil2410/Software-Test-Case-Management-Simulator",
+      "demo": "https://github.com/pranil2410/Software-Test-Case-Management-Simulator",
+      "achievements": [
+        "Designed and implemented a Python-based tool to simulate test case management workflows: creating, executing, logging, and tracking test cases with pass/fail/blocked status.",
+        "Built a defect log generator that auto-assigns severity (Critical/Major/Minor) based on failure patterns and exports structured reports to Excel.",
+        "Demonstrated understanding of test plan structure, traceability, and documentation discipline required in software validation processes."
+      ],
+      "problemSolved": "Simulates manual and structured defect tracking workflows in a programmatic environment for validation.",
+      "learnings": "Developed key validation principles, mock reporting engines, and structured CSV reporting logic."
+    },
+    {
+      "id": "healthcare-risk",
+      "title": "Healthcare Risk Stratification System",
+      "description": "A Python-based ML classification system handling 5,000+ patient records with automated data validation and anomaly detection.",
+      "techStack": ["Python", "Scikit-learn", "Pandas", "NumPy"],
+      "image": "https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?q=80&w=600&auto=format&fit=crop",
+      "github": "https://github.com/pranil2410",
+      "demo": "https://github.com/pranil2410",
+      "achievements": [
+        "Developed a Python-based ML classification system handling 5,000+ patient records with automated data validation and anomaly detection.",
+        "Applied feature engineering and ROC-AUC evaluation to stratify patients into risk tiers, reducing manual checking through automation."
+      ],
+      "problemSolved": "Hospitals require automated classification systems to allocate preventive care resources efficiently.",
+      "learnings": "Advanced skills in imbalanced data handling, feature scaling, and performance metrics evaluation."
+    },
+    {
+      "id": "google-ads-diagnostic",
+      "title": "Google Ads Campaign Diagnostic & Performance Analysis",
+      "description": "An end-to-end data pipeline ingesting, cleaning, and evaluating Google Ads performance metrics (CTR, CPC, ROAS) and detecting budget leakage.",
+      "techStack": ["Python", "SQL", "Pandas"],
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop",
+      "github": "https://github.com/pranil2410",
+      "demo": "https://github.com/pranil2410",
+      "achievements": [
+        "Built an end-to-end data pipeline ingesting, cleaning, and evaluating Google Ads performance metrics.",
+        "Automated anomaly detection and scoring logic; wrote optimised SQL queries for large dataset extraction and aggregation."
+      ],
+      "problemSolved": "Detects marketing spend inefficiencies and anomalies dynamically across campaigns.",
+      "learnings": "Mastered complex SQL aggregations, time-series anomaly detection, and KPI math."
+    },
+    {
       "id": "election-guide-ai",
       "title": "Election Guide AI",
-      "description": "An AI-powered political advisor and voter information platform that provides non-partisan answers on election candidates, policies, and voting procedures.",
-      "techStack": ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Gemini API"],
+      "description": "A full-stack civic-tech web application featuring an AI chatbot, voting eligibility checker, and election timeline tracker.",
+      "techStack": ["ReactJS", "JavaScript", "HTML/CSS", "LLM API", "REST APIs"],
       "image": "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=600&auto=format&fit=crop",
-      "github": "https://github.com/pranil2410/election-guide-ai",
-      "demo": "https://election-guide-ai.example.com",
+      "github": "https://github.com/pranil2410",
+      "demo": "https://github.com/pranil2410",
       "achievements": [
-        "Leveraged Retrieval-Augmented Generation (RAG) to serve accurate candidate policy positions.",
-        "Engineered smooth, responsive Framer Motion UI capable of low-latency chat streaming."
+        "Built a full-stack civic-tech web application featuring an AI chatbot (LLM API integration), voting eligibility checker, and election timeline tracker.",
+        "Deployed live as part of Hack2Skill BuildWithAI hackathon; received developer community engagement on LinkedIn."
       ],
-      "problemSolved": "Voters struggle to find unbiased, consolidated policy stances for local and national election candidates.",
-      "learnings": "Mastered handling real-time LLM streaming events and context-window optimization to prevent AI hallucinations."
+      "problemSolved": "Voters struggle to access dynamic, non-partisan voting guidelines and timeline reminders.",
+      "learnings": "Learned model deployment, API integrations, and low-latency state updates in React."
     },
     {
-      "id": "dragon-repeller-rpg",
-      "title": "Dragon Repeller RPG",
-      "description": "An immersive, text-based action-adventure RPG featuring dynamic inventory management, merchant exchanges, and logic-driven turn-based combat encounters.",
-      "techStack": ["HTML5", "CSS3", "JavaScript", "Vanilla CSS", "Audio Synthesis"],
-      "image": "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?q=80&w=600&auto=format&fit=crop",
-      "github": "https://github.com/pranil2410/dragon-repeller-rpg",
-      "demo": "https://dragon-repeller-rpg.example.com",
+      "id": "python-eda-pipeline",
+      "title": "Python EDA & Data Wrangling Pipeline",
+      "description": "A modular, reusable EDA pipeline automating null detection, outlier analysis, correlation heatmaps, and distribution profiling.",
+      "techStack": ["Python", "Pandas", "NumPy", "Seaborn"],
+      "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop",
+      "github": "https://github.com/pranil2410",
+      "demo": "https://github.com/pranil2410",
       "achievements": [
-        "Implemented state-management structure entirely in vanilla JavaScript.",
-        "Integrated dynamic procedurally-generated game text narratives."
+        "Built a modular, reusable EDA pipeline automating null detection, outlier analysis, correlation heatmaps, and distribution profiling.",
+        "Supports rapid, accurate data validation relevant to test data management."
       ],
-      "problemSolved": "Designed a lightweight, browser-based gaming engine that requires no massive asset downloads and runs at 60 FPS on any device.",
-      "learnings": "Drawn deep insights into clean state management, keyboard event handling, and game loop timing in JavaScript."
-    },
-    {
-      "id": "responsive-portfolio",
-      "title": "Responsive Portfolio",
-      "description": "A high-performance personal developer portfolio demonstrating fluid fluid-grid systems, glassmorphism UI/UX design, and elegant animations.",
-      "techStack": ["React", "Vite", "Tailwind CSS", "Framer Motion", "TypeScript"],
-      "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600&auto=format&fit=crop",
-      "github": "https://github.com/pranil2410/responsive-portfolio",
-      "demo": "https://pranil-belge.vercel.app",
-      "achievements": [
-        "Obtained 95+ scores on Lighthouse audits for Performance, SEO, and Accessibility.",
-        "Responsive across all break-points from small mobile screens to 4K displays."
-      ],
-      "problemSolved": "Created a lightweight personal showcase with micro-interactions that communicate skills dynamically without heavy payload assets.",
-      "learnings": "Explored custom Tailwind utilities, hardware-accelerated CSS properties, and SVG layout design."
-    },
-    {
-      "id": "google-ads-analytics",
-      "title": "Google Ads Analytics",
-      "description": "A developer-focused performance reporting engine that retrieves Google Ads API metrics, builds interactive campaigns charts, and detects budget anomalies.",
-      "techStack": ["React", "Node.js", "Express", "Chart.js", "Google Ads API"],
-      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop",
-      "github": "https://github.com/pranil2410/google-ads-analytics",
-      "demo": "https://ads-analytics.example.com",
-      "achievements": [
-        "Optimized API polling with a server-side caching layer, reducing API quota exhaustion by 60%.",
-        "Created an automated email alert system using SendGrid for underperforming campaigns."
-      ],
-      "problemSolved": "Marketers struggled to quickly visualize campaign trends and spot cost anomalies across hundreds of ad groups.",
-      "learnings": "Worked closely with OAuth2 flows, token refresh cycles, and complex time-series aggregation algorithms."
+      "problemSolved": "Automates repetitive exploratory data analysis and data validation workflows.",
+      "learnings": "Acquired deep understanding of outlier handling, statistical distribution metrics, and data validation structures."
     }
   ],
   "experience": [
     {
-      "role": "Associate Software Engineer",
-      "company": "Cognizant Technology Solutions",
-      "period": "2023 - Present",
-      "description": "Spearheaded frontend component creation and API integrations for client applications.",
+      "role": "Virtual Software / Data Analyst Intern",
+      "company": "Tata – Data Analytics Job Simulation (via Forage)",
+      "period": "Remote | 2024",
+      "description": "Investigated dataset anomalies, logged inconsistencies, and produced structured evidence-backed reports with clear escalation paths.",
       "achievements": [
-        "Refactored legacy React applications to TypeScript, decreasing runtime exceptions by 35%.",
-        "Cooperated with UI/UX design teams to establish reusable design system libraries, shortening UI coding cycles."
+        "Investigated dataset anomalies and logged inconsistencies to mirror defect identification QA workflows.",
+        "Built Power BI dashboards with DAX-calculated measures to monitor KPIs.",
+        "Applied Python scripting for data transformation, validation, and structured documentation."
       ]
     },
     {
-      "role": "Software Engineering Intern",
-      "company": "Tech Solutions Corp",
-      "period": "2022 - 2023",
-      "description": "Collaborated on testing, debugging, and adding features to React and Node.js-based SaaS backends.",
+      "role": "Virtual Software / Data Analyst Intern",
+      "company": "Deloitte – Data Analytics Consulting Simulation (via Forage)",
+      "period": "Remote | 2024",
+      "description": "Performed systematic exploratory data analysis and anomaly detection on client datasets using Python.",
       "achievements": [
-        "Wrote 80+ unit tests with Jest, increasing project test coverage from 65% to 88%.",
-        "Accelerated page load times by implementing lazy loading for large project modules."
+        "Performed EDA and anomaly detection using Python, analogous to test observation logging.",
+        "Delivered Excel-based analytical reports to stakeholders, showing clear communication of technical findings."
       ]
     }
   ],
   "certifications": [
     {
-      "name": "Meta Front-End Developer Professional Certificate",
-      "issuer": "Meta (Coursera)",
+      "name": "Scientific Computing with Python & Responsive Web Design",
+      "issuer": "freeCodeCamp",
       "date": "2024",
-      "credentialId": "META-FE-998822"
+      "credentialId": "FCC-PYTHON-99"
     },
     {
-      "name": "AWS Certified Cloud Practitioner",
-      "issuer": "Amazon Web Services",
+      "name": "Data Analytics (SQL, Power BI, Tableau)",
+      "issuer": "Tutedude",
+      "date": "2026",
+      "credentialId": "TD-DA-2026"
+    },
+    {
+      "name": "Google AI-ML Virtual Internship & Altair Data Science Internship",
+      "issuer": "Google / Altair (via EduSkills)",
+      "date": "2024",
+      "credentialId": "EDUSKILLS-2024"
+    },
+    {
+      "name": "Oracle Database & SQL Fundamentals",
+      "issuer": "Oracle Academy",
       "date": "2023",
-      "credentialId": "AWS-CCP-112233"
+      "credentialId": "ORA-DB-88"
     }
   ],
   "hackathons": [
     {
-      "name": "Global WebDev Hackathon",
-      "project": "VoterGuide Portal",
-      "prize": "Top 10 Finalist",
-      "description": "Built a responsive election tracker under 48 hours serving localized voter advice."
+      "name": "BuildWithAI – Hack2Skill",
+      "project": "Election Guide AI",
+      "prize": "Participant & Live Deployer",
+      "description": "Built and deployed Election Guide AI under hackathon time constraints; received developer community engagement on LinkedIn."
+    },
+    {
+      "name": "Prompt Wars Hackathon – Hack2Skill",
+      "project": "Smart Event Assistant",
+      "prize": "Participant",
+      "description": "Built Smart Event Assistant (HTML/CSS/JS) end-to-end within the hackathon timeline under pressure."
     }
   ]
 }
