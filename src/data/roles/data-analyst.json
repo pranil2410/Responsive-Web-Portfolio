@@ -89,7 +89,7 @@
       "platform": "Power BI",
       "embedUrl": "https://app.powerbi.com/view?r=eyJrIjoiZomatoMockEmbed",
       "description": "Interactive Data Analysis & Business Insights analyzing restaurant listings, ratings, votes, and average costs.",
-      "screenshot": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600&auto=format&fit=crop",
+      "screenshot": "/zomato_analytics.png",
       "metrics": [
         { "label": "Restaurants", "value": "26K" },
         { "label": "Avg Rating", "value": "3.67" },
@@ -103,7 +103,7 @@
       "platform": "Power BI",
       "embedUrl": "https://app.powerbi.com/view?r=eyJrIjoiEcomMockEmbed",
       "description": "Developed an interactive 3-page Power BI dashboard analyzing the Sample Superstore E-Commerce dataset.",
-      "screenshot": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop",
+      "screenshot": "/ecommerce_analytics.png",
       "metrics": [
         { "label": "Total Sales", "value": "887.92K" },
         { "label": "Total Profit", "value": "108.80K" },
