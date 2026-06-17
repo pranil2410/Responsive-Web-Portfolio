@@ -29,7 +29,7 @@ export const GlassCard: React.FC<GlassCardProps> = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay }}
       whileHover={hoverScale ? { y: -4, scale: 1.015 } : {}}
-      whileTap={{ scale: 0.985 }}
+      whileTap={hoverScale ? { scale: 0.985 } : {}}
       className={`glass glass-shine-hover rounded-2xl p-6 transition-all duration-300 ${glowClasses[glowColor]} ${className}`}
     >
       {children}

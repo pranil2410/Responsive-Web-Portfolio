@@ -91,7 +91,7 @@ export interface RoleConfig {
 }
 
 /**
- * Returns all parsed role configurations
+ * Returns all parsed role configurations, merging any local storage overrides
  */
 export const getRoles = (): RoleConfig[] => {
   const roles: RoleConfig[] = [];
@@ -100,6 +100,16 @@ export const getRoles = (): RoleConfig[] => {
     // Default export or module root
     const data = module.default || module;
     if (data && data.id) {
+      const overrideKey = `portfolio_role_override_${data.id}`;
+      const localOverride = localStorage.getItem(overrideKey);
+      if (localOverride) {
+        try {
+          roles.push(JSON.parse(localOverride) as RoleConfig);
+          continue;
+        } catch (e) {
+          console.error("Failed to parse override for role", data.id, e);
+        }
+      }
       roles.push(data as RoleConfig);
     }
   }

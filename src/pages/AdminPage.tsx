@@ -7,10 +7,11 @@ import GlassCard from "../components/GlassCard";
 import SEO from "../components/SEO";
 
 export const AdminPage: React.FC = () => {
+  const roles = getRoles();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
-  const [activeTab, setActiveTab] = useState<"links" | "validator" | "resumes" | "messages" | "analytics" | "builder">("links");
+  const [activeTab, setActiveTab] = useState<"links" | "validator" | "resumes" | "messages" | "analytics" | "builder" | "tailor">("links");
 
   // Links state
   const [links, setLinks] = useState<any>({ name: "", linkedin: "", github: "", whatsapp: "", email: "", portfolioUrl: "" });
@@ -20,11 +21,133 @@ export const AdminPage: React.FC = () => {
   const [messages, setMessages] = useState<any[]>([]);
   const [loadingMessages, setLoadingMessages] = useState(false);
 
+  // JD Resume Tailor & ATS Scanner States
+  const [selectedJdRole, setSelectedJdRole] = useState(roles[0]?.id || "");
+  const [jdText, setJdText] = useState("");
+  const [atsScore, setAtsScore] = useState<number | null>(null);
+  const [atsAnalysis, setAtsAnalysis] = useState<any>(null);
+  const [isAnalyzingJd, setIsAnalyzingJd] = useState(false);
+  const [tailoredSummary, setTailoredSummary] = useState("");
+  const [tailoredSkills, setTailoredSkills] = useState<any[]>([]);
+  const [isTailoringApplied, setIsTailoringApplied] = useState(false);
+
+  const runAtsAnalysis = () => {
+    if (!jdText.trim()) return;
+    setIsAnalyzingJd(true);
+    setIsTailoringApplied(false);
+    
+    setTimeout(() => {
+      const targetRole = roles.find(r => r.id === selectedJdRole);
+      if (!targetRole) return;
+
+      const jdLower = jdText.toLowerCase();
+      const matchedSkills: string[] = [];
+      const missingSkills: string[] = [];
+      
+      const commonKeywords = [
+        "react", "typescript", "node", "express", "javascript", "rest", "api", "git", "ci/cd", "aws", "firebase",
+        "power bi", "sql", "python", "tableau", "excel", "dax", "dashboard", "etl", "data modeling", "statistics",
+        "openai", "anthropic", "llm", "prompt engineering", "rag", "vector", "langchain", "pinecone", "claude", "gpt", "agentic", "ai"
+      ];
+
+      const jdKeywords = commonKeywords.filter(k => jdLower.includes(k));
+      
+      targetRole.skills.forEach(skill => {
+        const skillNameLower = skill.name.toLowerCase();
+        const matchesJd = jdKeywords.some(keyword => skillNameLower.includes(keyword) || jdLower.includes(skillNameLower));
+        if (matchesJd) {
+          matchedSkills.push(skill.name);
+        }
+      });
+
+      jdKeywords.forEach(keyword => {
+        const hasSkill = targetRole.skills.some(skill => skill.name.toLowerCase().includes(keyword));
+        if (!hasSkill) {
+          const displayKeyword = keyword.charAt(0).toUpperCase() + keyword.slice(1);
+          missingSkills.push(displayKeyword);
+        }
+      });
+
+      let score = 35;
+      if (targetRole.skills.length > 0) {
+        const skillMatchWeight = (matchedSkills.length / targetRole.skills.length) * 45;
+        score += skillMatchWeight;
+      }
+      
+      const totalKeywordsEvaluated = matchedSkills.length + missingSkills.length;
+      if (totalKeywordsEvaluated > 0) {
+        const keywordRatio = (matchedSkills.length / totalKeywordsEvaluated) * 15;
+        score += keywordRatio;
+      }
+
+      const finalScore = Math.min(Math.round(score), 98);
+      
+      const recommendations: string[] = [];
+      if (missingSkills.length > 0) {
+        recommendations.push(`Integrate missing critical skills: ${missingSkills.slice(0, 3).join(", ")} to align with requirements.`);
+      }
+      if (finalScore < 70) {
+        recommendations.push("Revise the professional summary to contextually link with primary keywords in the JD.");
+        recommendations.push("Adapt the project metrics to emphasize execution context aligned with JD targets.");
+      } else {
+        recommendations.push("Great alignment! Apply tailoring below to prioritize matched competencies.");
+      }
+
+      const tailoredSum = `Experienced ${targetRole.title} with solid execution records matching key requirements. Proficient in core JD areas including ${matchedSkills.slice(0, 4).join(", ")}${missingSkills.length > 0 ? `, with developing expertise in ${missingSkills.slice(0, 2).join(" and ")}` : ""}. Skilled in resolving business challenges, optimizing systems architecture, and delivering high-quality analytics workflows.`;
+
+      const tailoredSk = targetRole.skills.map(s => {
+        const isMatched = matchedSkills.includes(s.name);
+        return {
+          ...s,
+          level: isMatched ? Math.min(s.level + 4, 98) : s.level,
+          priority: isMatched ? 1 : 2
+        };
+      }).sort((a, b) => a.priority - b.priority);
+
+      setAtsScore(finalScore);
+      setAtsAnalysis({
+        matchedSkills,
+        missingSkills,
+        recommendations
+      });
+      setTailoredSummary(tailoredSum);
+      setTailoredSkills(tailoredSk);
+      setIsAnalyzingJd(false);
+    }, 1000);
+  };
+
+  const applyTailoredChanges = () => {
+    const targetRole = roles.find(r => r.id === selectedJdRole);
+    if (!targetRole) return;
+
+    const tailoredProfile = {
+      ...targetRole,
+      summary: tailoredSummary,
+      skills: tailoredSkills.map(({ name, category, level }) => ({ name, category, level }))
+    };
+
+    const overrideKey = `portfolio_role_override_${selectedJdRole}`;
+    localStorage.setItem(overrideKey, JSON.stringify(tailoredProfile));
+    setIsTailoringApplied(true);
+  };
+
+  const resetRoleToDefault = (roleId: string) => {
+    const overrideKey = `portfolio_role_override_${roleId}`;
+    localStorage.removeItem(overrideKey);
+    
+    if (selectedJdRole === roleId) {
+      setAtsScore(null);
+      setAtsAnalysis(null);
+      setTailoredSummary("");
+      setTailoredSkills([]);
+    }
+    window.location.reload();
+  };
+
   // Analytics state
   const [analytics, setAnalytics] = useState<any>({ visitors: 0, downloads: {}, projectClicks: {} });
 
   // Resume state
-  const roles = getRoles();
   const [selectedResumeRole, setSelectedResumeRole] = useState(roles[0]?.id || "");
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [uploadStatus, setUploadStatus] = useState<"idle" | "uploading" | "success" | "error">("idle");
@@ -331,6 +454,7 @@ export const AdminPage: React.FC = () => {
               { id: "messages", label: "Messages Inbox", icon: "Mail" },
               { id: "analytics", label: "Analytics Logs", icon: "BarChart" },
               { id: "builder", label: "Resume Builder", icon: "PlusCircle" },
+              { id: "tailor", label: "JD Resume Tailor", icon: "Sparkles" },
             ].map((tab) => {
               const IconComp = (Icons as any)[tab.icon] || Icons.HelpCircle;
               const isSelected = activeTab === tab.id;
@@ -816,6 +940,169 @@ export const AdminPage: React.FC = () => {
                       <pre className="p-4 rounded-xl border border-border bg-black/40 text-xs font-mono text-emerald-400 overflow-x-auto max-h-72">
                         {generatedJsonOutput}
                       </pre>
+                    </div>
+                  )}
+                </GlassCard>
+              </motion.div>
+            )}
+
+            {activeTab === "tailor" && (
+              <motion.div
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 10 }}
+              >
+                <GlassCard hoverScale={false}>
+                  <h3 className="text-lg font-bold text-foreground mb-1.5 flex items-center gap-2 border-b border-border/40 pb-3">
+                    <Icons.Sparkles className="w-5 h-5 text-purple-400" /> JD Resume Tailor & ATS Scanner
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-6">
+                    Paste a Job Description (JD) to analyze your profile suitability, calculate a match score, and generate a tailored summary/skills matrix.
+                  </p>
+
+                  <div className="space-y-4 mb-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-1">
+                        <label className="text-[10px] uppercase font-bold text-muted-foreground">Target Role Profile</label>
+                        <select
+                          value={selectedJdRole}
+                          onChange={(e) => {
+                            setSelectedJdRole(e.target.value);
+                            setAtsScore(null);
+                            setAtsAnalysis(null);
+                            setTailoredSummary("");
+                            setTailoredSkills([]);
+                            setIsTailoringApplied(false);
+                          }}
+                          className="w-full px-3 py-2 rounded-lg border border-border bg-background text-xs text-foreground cursor-pointer outline-none [&>option]:bg-background"
+                        >
+                          {roles.map(r => (
+                            <option key={r.id} value={r.id}>{r.title}</option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div className="flex items-end gap-2">
+                        <button
+                          onClick={() => resetRoleToDefault(selectedJdRole)}
+                          className="px-4 py-2 rounded-lg border border-red-500/30 bg-red-500/5 hover:bg-red-500/10 text-red-400 text-xs font-semibold cursor-pointer transition-colors"
+                          title="Restore default profile details from static files"
+                        >
+                          Reset Profile to Code Defaults
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="space-y-1">
+                      <label className="text-[10px] uppercase font-bold text-muted-foreground">Job Description (JD)</label>
+                      <textarea
+                        value={jdText}
+                        onChange={(e) => setJdText(e.target.value)}
+                        placeholder="Paste the Job Description keywords and details here..."
+                        rows={6}
+                        className="w-full px-4 py-3 rounded-lg border border-border bg-background text-xs text-foreground outline-none focus:ring-1 focus:ring-primary"
+                      />
+                    </div>
+
+                    <button
+                      onClick={runAtsAnalysis}
+                      disabled={isAnalyzingJd || !jdText.trim()}
+                      className="px-5 py-2.5 bg-primary hover:opacity-95 text-primary-foreground font-semibold rounded-lg text-xs cursor-pointer disabled:opacity-50 flex items-center justify-center gap-2"
+                    >
+                      {isAnalyzingJd ? (
+                        <>
+                          <Icons.Loader2 className="w-4 h-4 animate-spin" /> Scanning JD suitability...
+                        </>
+                      ) : (
+                        <>
+                          <Icons.Activity className="w-4 h-4" /> Calculate ATS Score & Tailor
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  {/* ATS Results View */}
+                  {atsScore !== null && (
+                    <div className="space-y-6 border-t border-border/40 pt-6 animate-in fade-in duration-300">
+                      <div className="flex flex-col md:flex-row items-center gap-6 p-4 rounded-xl border border-border bg-card/25">
+                        {/* Circle Score */}
+                        <div className="relative flex items-center justify-center w-20 h-20 rounded-full border-4 border-secondary shrink-0">
+                          <span className={`text-xl font-black ${
+                            atsScore >= 75 ? "text-emerald-400" : atsScore >= 50 ? "text-yellow-400" : "text-red-400"
+                          }`}>
+                            {atsScore}%
+                          </span>
+                          <span className="text-[8px] uppercase font-bold text-muted-foreground absolute bottom-2">ATS Score</span>
+                        </div>
+
+                        <div className="space-y-2">
+                          <h4 className="text-sm font-bold text-foreground">Suitability Diagnostics Analysis</h4>
+                          <div className="text-xs text-muted-foreground space-y-1">
+                            <p>Matched Keywords: <span className="text-emerald-400 font-medium">{atsAnalysis?.matchedSkills?.join(", ") || "None"}</span></p>
+                            <p>Missing Keywords: <span className="text-red-400 font-medium">{atsAnalysis?.missingSkills?.join(", ") || "None"}</span></p>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Recommendations */}
+                      <div className="space-y-2.5">
+                        <h4 className="text-xs uppercase tracking-wider text-muted-foreground font-bold">Optimizations Recommendations</h4>
+                        <div className="space-y-1.5">
+                          {atsAnalysis?.recommendations?.map((rec: string, rIdx: number) => (
+                            <div key={rIdx} className="flex items-start gap-2 text-xs text-muted-foreground bg-secondary/10 p-2.5 rounded-lg border border-border/30">
+                              <Icons.ChevronRight className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
+                              <span>{rec}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Auto Tailor Results Preview */}
+                      <div className="space-y-4 border-t border-border/40 pt-6">
+                        <h4 className="text-sm font-bold text-foreground flex items-center gap-1.5">
+                          <Icons.Sparkles className="w-4.5 h-4.5 text-purple-400" /> Tailored Profile Preview (JD Customized)
+                        </h4>
+                        
+                        <div className="space-y-3.5">
+                          <div className="space-y-1">
+                            <label className="text-[10px] uppercase font-bold text-muted-foreground">Suggested Summary Overwrite</label>
+                            <textarea
+                              value={tailoredSummary}
+                              onChange={(e) => setTailoredSummary(e.target.value)}
+                              rows={4}
+                              className="w-full px-3 py-2 rounded-lg border border-border bg-background text-xs text-foreground outline-none resize-none focus:ring-1 focus:ring-primary"
+                            />
+                          </div>
+
+                          <div className="space-y-1">
+                            <label className="text-[10px] uppercase font-bold text-muted-foreground">Prioritized Skills Order</label>
+                            <div className="flex flex-wrap gap-1.5 p-3 rounded-lg border border-border bg-black/20">
+                              {tailoredSkills.map((sk, sIdx) => (
+                                <span key={sIdx} className="text-[10px] font-mono px-2 py-0.5 rounded border border-border/60 bg-secondary/35 text-foreground/80 flex items-center gap-1">
+                                  {sk.name} <strong className="text-purple-400 font-bold">{sk.level}%</strong>
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+
+                        <div className="flex flex-col gap-2 pt-2">
+                          <button
+                            onClick={applyTailoredChanges}
+                            disabled={isTailoringApplied}
+                            className="w-full py-2.5 bg-primary hover:opacity-95 text-primary-foreground font-semibold rounded-lg text-xs cursor-pointer flex items-center justify-center gap-1.5"
+                          >
+                            <Icons.CheckCircle className="w-4 h-4" /> 
+                            {isTailoringApplied ? "Tailored Modifications Applied Globally!" : "Apply Tailored Profile & Resume Globally"}
+                          </button>
+                          
+                          {isTailoringApplied && (
+                            <p className="text-[10px] text-emerald-400 text-center font-medium animate-pulse">
+                              Success! Profile overrides saved. The homepage resume summaries, skills matrices, and comparison tables will immediately render this JD-tailored configuration.
+                            </p>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   )}
                 </GlassCard>

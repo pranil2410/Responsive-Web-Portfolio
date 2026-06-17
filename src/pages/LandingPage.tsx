@@ -255,54 +255,56 @@ export const LandingPage: React.FC = () => {
             const color = glowColors[index % 3];
 
             return (
-              <GlassCard
+              <Link
                 key={role.id}
-                glowColor={color}
-                delay={index * 0.1}
-                className="flex flex-col justify-between h-full group"
+                to={`/role/${role.id}`}
+                className="block h-full group text-left outline-none cursor-pointer"
               >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400">
-                      <DynamicIcon name={role.roleIcon} />
-                    </div>
-                    <span className="text-[10px] font-mono uppercase text-muted-foreground border border-border px-2 py-0.5 rounded-full bg-secondary/10">
-                      {role.projects.length} Projects
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-purple-400 transition-colors">
-                    {role.title}
-                  </h3>
-
-                  <p className="text-sm text-muted-foreground/90 line-clamp-3 mb-6 leading-relaxed">
-                    {role.summary}
-                  </p>
-
-                  <div className="mb-8">
-                    <h4 className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-2.5">
-                      Core Expertise
-                    </h4>
-                    <div className="flex flex-wrap gap-1.5">
-                      {role.skills.slice(0, 4).map((skill, idx) => (
-                        <span
-                          key={idx}
-                          className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-border bg-secondary/30 text-foreground/80"
-                        >
-                          {skill.name}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                <Link
-                  to={`/role/${role.id}`}
-                  className="w-full py-2.5 px-4 rounded-xl bg-primary hover:bg-primary-foreground/90 text-primary-foreground font-semibold text-center text-sm transition-all duration-200 flex items-center justify-center gap-1.5 cursor-pointer shadow-md hover:shadow-purple-500/20"
+                <GlassCard
+                  glowColor={color}
+                  delay={index * 0.1}
+                  className="flex flex-col justify-between h-full"
                 >
-                  View Profile <Icons.ArrowRight className="w-4 h-4" />
-                </Link>
-              </GlassCard>
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="p-3 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400">
+                        <DynamicIcon name={role.roleIcon} />
+                      </div>
+                      <span className="text-[10px] font-mono uppercase text-muted-foreground border border-border px-2 py-0.5 rounded-full bg-secondary/10">
+                        {role.projects.length} Projects
+                      </span>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-foreground mb-2 group-hover:text-purple-400 transition-colors">
+                      {role.title}
+                    </h3>
+
+                    <p className="text-sm text-muted-foreground/90 line-clamp-3 mb-6 leading-relaxed">
+                      {role.summary}
+                    </p>
+
+                    <div className="mb-8">
+                      <h4 className="text-xs uppercase tracking-wider text-muted-foreground font-semibold mb-2.5">
+                        Core Expertise
+                      </h4>
+                      <div className="flex flex-wrap gap-1.5">
+                        {role.skills.slice(0, 4).map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="text-[11px] font-medium px-2.5 py-0.5 rounded-full border border-border bg-secondary/30 text-foreground/80"
+                          >
+                            {skill.name}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="w-full py-2.5 px-4 rounded-xl bg-primary group-hover:bg-primary-foreground/95 text-primary-foreground font-semibold text-center text-sm transition-all duration-200 flex items-center justify-center gap-1.5 shadow-md">
+                    View Profile <Icons.ArrowRight className="w-4 h-4" />
+                  </div>
+                </GlassCard>
+              </Link>
             );
           })}
         </div>

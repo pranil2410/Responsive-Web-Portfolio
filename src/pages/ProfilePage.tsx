@@ -552,7 +552,7 @@ export const ProfilePage: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {role.projects.map((proj) => (
-            <GlassCard key={proj.id} glowColor="none" className="flex flex-col justify-between h-full">
+            <GlassCard key={proj.id} glowColor="none" hoverScale={false} className="flex flex-col justify-between h-full hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
               <div>
                 <div className="w-full aspect-video rounded-xl overflow-hidden mb-4 border border-border relative">
                   <img src={proj.image} alt={proj.title} className="w-full h-full object-cover" />
