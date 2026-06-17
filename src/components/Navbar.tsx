@@ -46,7 +46,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 font-bold text-xl tracking-tight text-foreground">
-          <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent inline-block pb-1">
             Pranil Belge
           </span>
           <span className="text-[10px] uppercase tracking-widest text-muted-foreground px-2 py-0.5 rounded-full border border-border">

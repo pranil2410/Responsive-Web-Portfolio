@@ -157,7 +157,7 @@ export const LandingPage: React.FC = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-5xl md:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-white via-gray-300 to-purple-400 bg-clip-text text-transparent mb-6"
+          className="text-5xl md:text-7xl font-extrabold tracking-tight bg-gradient-to-r from-white via-gray-300 to-purple-400 bg-clip-text text-transparent pb-3 mb-3"
         >
           Pranil Belge
         </motion.h1>

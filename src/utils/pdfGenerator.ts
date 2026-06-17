@@ -143,15 +143,14 @@ T*
   
   if (role.experience) {
     role.experience.forEach(exp => {
-      let size = 15;
+      let size = 22;
       if (exp.achievements) {
         exp.achievements.forEach((ach: string) => {
-          size += wrapText(`* ${ach}`, 88).length * 10;
+          size += wrapText(`* ${ach}`, 88).length * 11;
         });
       } else if (exp.description) {
-        size += wrapText(`* ${exp.description}`, 88).length * 10;
+        size += wrapText(`* ${exp.description}`, 88).length * 11;
       }
-      size += 10;
       
       if (y1 - size > 50) {
         p1Experiences.push(exp);
@@ -183,11 +182,11 @@ T*
         const bulletLines = wrapText(`* ${bullet}`, 88);
         bulletLines.forEach(line => {
           stream1 += `/F1 8.5 Tf (${escapePDF(line)}) Tj\nT*\n`;
-          y1 -= 10;
+          y1 -= 11;
         });
       });
       stream1 += `T*\n`;
-      y1 -= 8;
+      y1 -= 11;
     });
     stream1 += `ET\n`;
   }
@@ -226,11 +225,11 @@ T*
         const bulletLines = wrapText(`* ${bullet}`, 88);
         bulletLines.forEach(line => {
           stream2 += `/F1 8.5 Tf (${escapePDF(line)}) Tj\nT*\n`;
-          y2 -= 10;
+          y2 -= 11;
         });
       });
       stream2 += `T*\n`;
-      y2 -= 8;
+      y2 -= 11;
     });
     stream2 += `ET\n`;
   }
@@ -256,11 +255,11 @@ T*
       const bulletLines = wrapText(`* ${bullet}`, 88);
       bulletLines.forEach(line => {
         stream2 += `/F1 8.5 Tf (${escapePDF(line)}) Tj\nT*\n`;
-        y2 -= 10;
+        y2 -= 11;
       });
     });
     stream2 += `T*\n`;
-    y2 -= 6;
+    y2 -= 11;
   });
   stream2 += `ET\n`;
 
@@ -284,11 +283,11 @@ T*
         const hLines = wrapText(`* ${h.description}`, 88);
         hLines.forEach(line => {
           stream2 += `/F1 8.5 Tf (${escapePDF(line)}) Tj\nT*\n`;
-          y2 -= 10;
+          y2 -= 11;
         });
       }
       stream2 += `T*\n`;
-      y2 -= 6;
+      y2 -= 11;
     });
     stream2 += `ET\n`;
   }
@@ -308,7 +307,7 @@ T*
 
     role.certifications.forEach(cert => {
       stream2 += `/F1 8.5 Tf (* ${escapePDF(cert.name)} - ${escapePDF(cert.issuer)} (${escapePDF(cert.date)})) Tj\nT*\n`;
-      y2 -= 10;
+      y2 -= 11;
     });
     stream2 += `ET\n`;
   }

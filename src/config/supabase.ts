@@ -243,6 +243,32 @@ export const dbService = {
     }
     const local = localStorage.getItem(KEYS.MESSAGES) || "[]";
     return JSON.parse(local).sort((a: any, b: any) => new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime());
+  },
+
+  async resetSystem(roleIds: string[]): Promise<void> {
+    try {
+      // 1. Reset links in Supabase portfolio_config
+      await supabase
+        .from("portfolio_config")
+        .upsert({ key: "links", value: defaultLinks }, { onConflict: "key" });
+      
+      // 2. Delete resume association records from portfolio_config
+      for (const roleId of roleIds) {
+        await supabase
+          .from("portfolio_config")
+          .delete()
+          .eq("key", `resume_${roleId}`);
+      }
+    } catch (err) {
+      console.warn("Supabase database reset failed:", err);
+    }
+
+    // 3. Reset Local Storage keys
+    localStorage.removeItem(KEYS.LINKS);
+    localStorage.removeItem(KEYS.RESUMES);
+    roleIds.forEach(roleId => {
+      localStorage.removeItem(`portfolio_role_override_${roleId}`);
+    });
   }
 };
 

@@ -11,7 +11,7 @@ export const AdminPage: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");
-  const [activeTab, setActiveTab] = useState<"links" | "validator" | "resumes" | "messages" | "analytics" | "builder" | "tailor">("links");
+  const [activeTab, setActiveTab] = useState<"links" | "validator" | "resumes" | "messages" | "analytics" | "builder" | "tailor" | "settings">("links");
 
   // Links state
   const [links, setLinks] = useState<any>({ name: "", linkedin: "", github: "", whatsapp: "", email: "", portfolioUrl: "" });
@@ -142,6 +142,22 @@ export const AdminPage: React.FC = () => {
       setTailoredSkills([]);
     }
     window.location.reload();
+  };
+
+  const [isResetting, setIsResetting] = useState(false);
+  const handleSystemReset = async () => {
+    if (!window.confirm("Are you sure you want to reset the website to default configurations? This will delete all customized links and tailored resumes.")) {
+      return;
+    }
+    setIsResetting(true);
+    try {
+      const roleIds = roles.map(r => r.id);
+      await dbService.resetSystem(roleIds);
+      window.location.reload();
+    } catch (err) {
+      console.error("Failed to reset system:", err);
+      setIsResetting(false);
+    }
   };
 
   // Analytics state
@@ -455,6 +471,7 @@ export const AdminPage: React.FC = () => {
               { id: "analytics", label: "Analytics Logs", icon: "BarChart" },
               { id: "builder", label: "Resume Builder", icon: "PlusCircle" },
               { id: "tailor", label: "JD Resume Tailor", icon: "Sparkles" },
+              { id: "settings", label: "System Reset", icon: "Sliders" },
             ].map((tab) => {
               const IconComp = (Icons as any)[tab.icon] || Icons.HelpCircle;
               const isSelected = activeTab === tab.id;
@@ -1105,6 +1122,57 @@ export const AdminPage: React.FC = () => {
                       </div>
                     </div>
                   )}
+                </GlassCard>
+              </motion.div>
+            )}
+
+            {activeTab === "settings" && (
+              <motion.div
+                initial={{ opacity: 0, x: 10 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 10 }}
+              >
+                <GlassCard hoverScale={false}>
+                  <h3 className="text-lg font-bold text-foreground mb-1.5 flex items-center gap-2 border-b border-border/40 pb-3">
+                    <Icons.Sliders className="w-5 h-5 text-red-400" /> System Reset Settings
+                  </h3>
+                  <p className="text-xs text-muted-foreground mb-6">
+                    Manage system defaults and clear dynamic customization configurations.
+                  </p>
+
+                  <div className="p-4 rounded-xl border border-red-500/20 bg-red-500/5 space-y-4">
+                    <div className="flex gap-3">
+                      <Icons.AlertTriangle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+                      <div>
+                        <h4 className="text-xs font-bold text-red-400 uppercase tracking-wider">Warning: Critical Action</h4>
+                        <p className="text-[11px] text-muted-foreground mt-1 leading-relaxed">
+                          Resetting the website will clear all custom links configurations, uploaded resume PDFs, and ATS-tailored resume summaries/skills overrides. The site will immediately fall back to the default hardcoded JSON configurations.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="border-t border-red-500/10 pt-4 flex flex-col md:flex-row items-center justify-between gap-4">
+                      <div className="text-[11px] text-muted-foreground">
+                        This action will reload the page upon completion. Analytics logs and contact messages will be preserved.
+                      </div>
+                      
+                      <button
+                        onClick={handleSystemReset}
+                        disabled={isResetting}
+                        className="px-4 py-2.5 rounded-lg bg-red-500 hover:bg-red-600 disabled:bg-red-500/50 text-white text-xs font-bold transition-colors cursor-pointer shrink-0 flex items-center gap-1.5"
+                      >
+                        {isResetting ? (
+                          <>
+                            <Icons.Loader2 className="w-3.5 h-3.5 animate-spin" /> Resetting...
+                          </>
+                        ) : (
+                          <>
+                            <Icons.RefreshCw className="w-3.5 h-3.5" /> Reset Website to Defaults
+                          </>
+                        )}
+                      </button>
+                    </div>
+                  </div>
                 </GlassCard>
               </motion.div>
             )}
