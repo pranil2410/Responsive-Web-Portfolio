@@ -36,7 +36,7 @@ export const downloadMockPDF = (role: RoleConfig) => {
 (PRANIL BELGE) Tj
 T*
 /F1 9 Tf
-(Thane, Maharashtra, India  |  pranil2410@gmail.com  |  +91-9137447968) Tj
+(Thane, Maharashtra, India  |  pranil2410@gmail.com  |  +91 91374 47968) Tj
 T*
 (linkedin.com/in/pranil-belge-ml  |  github.com/pranil2410) Tj
 T*
