@@ -61,7 +61,9 @@ export const RecruiterPage: React.FC = () => {
       link.click();
     } else {
       const targetRole = allRoles.find(r => r.id === roleId);
-      downloadMockPDF(roleId, targetRole?.title || "Professional");
+      if (targetRole) {
+        downloadMockPDF(targetRole);
+      }
     }
   };
 

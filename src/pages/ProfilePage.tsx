@@ -95,7 +95,7 @@ export const ProfilePage: React.FC = () => {
     // Determine download link
     const downloadUrl = customResume?.downloadUrl || "#";
     if (downloadUrl === "#") {
-      downloadMockPDF(role.id, role.title);
+      downloadMockPDF(role);
     } else {
       const link = document.createElement("a");
       link.href = downloadUrl;
@@ -548,32 +548,29 @@ export const ProfilePage: React.FC = () => {
           {role.projects.map((proj) => (
             <GlassCard key={proj.id} glowColor="none" hoverScale={false} className="flex flex-col justify-between h-full hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
               <div>
-                <div className="w-full aspect-video rounded-xl overflow-hidden mb-4 border border-border relative">
-                  <img src={proj.image} alt={proj.title} className="w-full h-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                  
-                  <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
-                    <h4 className="text-base font-bold text-white tracking-wide">{proj.title}</h4>
-                    <div className="flex gap-2">
-                      <a
-                        href={proj.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-1.5 rounded-full bg-black/60 hover:bg-black/80 text-white transition-colors"
-                        title="GitHub Code"
-                      >
-                        <Icons.Github className="w-3.5 h-3.5" />
-                      </a>
-                      <a
-                        href={proj.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="p-1.5 rounded-full bg-black/60 hover:bg-black/80 text-white transition-colors"
-                        title="Live Demo"
-                      >
-                        <Icons.ExternalLink className="w-3.5 h-3.5" />
-                      </a>
-                    </div>
+                <div className="flex items-center justify-between mb-4 pb-3 border-b border-border/40">
+                  <h4 className="text-base font-bold text-foreground tracking-wide flex items-center gap-2">
+                    <Icons.FolderOpen className="w-4 h-4 text-purple-400" /> {proj.title}
+                  </h4>
+                  <div className="flex gap-2">
+                    <a
+                      href={proj.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-1.5 rounded-lg border border-border hover:bg-secondary/40 text-muted-foreground hover:text-foreground transition-colors"
+                      title="GitHub Code"
+                    >
+                      <Icons.Github className="w-4 h-4" />
+                    </a>
+                    <a
+                      href={proj.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-1.5 rounded-lg border border-border hover:bg-secondary/40 text-muted-foreground hover:text-foreground transition-colors"
+                      title="Live Demo"
+                    >
+                      <Icons.ExternalLink className="w-4 h-4" />
+                    </a>
                   </div>
                 </div>
 
