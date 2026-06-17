@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import * as Icons from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { authService, dbService, storageService, isOfflineMode } from "../config/firebase";
@@ -7,7 +7,7 @@ import GlassCard from "../components/GlassCard";
 import SEO from "../components/SEO";
 
 export const AdminPage: React.FC = () => {
-  const roles = getRoles();
+  const roles = useMemo(() => getRoles(), []);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [loginError, setLoginError] = useState("");

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect, useMemo } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import * as Icons from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { getRoles } from "../utils/roleLoader";
@@ -8,7 +8,8 @@ import GlassCard from "../components/GlassCard";
 import SEO from "../components/SEO";
 
 export const LandingPage: React.FC = () => {
-  const roles = getRoles();
+  const navigate = useNavigate();
+  const roles = useMemo(() => getRoles(), []);
   const [visitorCount, setVisitorCount] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState<any[]>([]);
@@ -255,10 +256,18 @@ export const LandingPage: React.FC = () => {
             const color = glowColors[index % 3];
 
             return (
-              <Link
+              <div
                 key={role.id}
-                to={`/role/${role.id}`}
-                className="block h-full group text-left outline-none cursor-pointer"
+                onClick={() => navigate(`/role/${role.id}`)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    navigate(`/role/${role.id}`);
+                  }
+                }}
+                role="button"
+                tabIndex={0}
+                className="block h-full group text-left outline-none cursor-pointer focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 rounded-2xl"
               >
                 <GlassCard
                   glowColor={color}
@@ -304,7 +313,7 @@ export const LandingPage: React.FC = () => {
                     View Profile <Icons.ArrowRight className="w-4 h-4" />
                   </div>
                 </GlassCard>
-              </Link>
+              </div>
             );
           })}
         </div>

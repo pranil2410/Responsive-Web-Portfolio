@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import * as Icons from "lucide-react";
 import { getRoles } from "../utils/roleLoader";
 import { dbService, storageService } from "../config/firebase";
@@ -6,7 +6,7 @@ import GlassCard from "../components/GlassCard";
 import SEO from "../components/SEO";
 
 export const RecruiterPage: React.FC = () => {
-  const allRoles = getRoles();
+  const allRoles = useMemo(() => getRoles(), []);
   
   // Selected roles to compare (default to first 3 roles)
   const [selectedIds, setSelectedIds] = useState<string[]>(allRoles.map(r => r.id));
