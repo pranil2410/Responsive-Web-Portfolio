@@ -123,7 +123,10 @@ export const ProfilePage: React.FC = () => {
       
       let currentIdx = 0;
       const interval = setInterval(() => {
-        setPromptOutput((prev) => prev + outputText[currentIdx]);
+        const char = outputText[currentIdx];
+        if (char !== undefined) {
+          setPromptOutput((prev) => prev + char);
+        }
         currentIdx++;
         if (currentIdx >= outputText.length) {
           clearInterval(interval);
@@ -232,7 +235,7 @@ export const ProfilePage: React.FC = () => {
                 <div className="space-y-4">
                   {role.certifications.map((cert, idx) => (
                     <div key={idx} className="p-3 rounded-xl border border-border/40 bg-secondary/15 flex items-start gap-3">
-                      <Icons.FileBadge className="w-5 h-5 text-purple-400 mt-0.5 shrink-0" />
+                      <Icons.BadgeCheck className="w-5 h-5 text-purple-400 mt-0.5 shrink-0" />
                       <div>
                         <h4 className="text-xs font-bold text-foreground">{cert.name}</h4>
                         <p className="text-[11px] text-muted-foreground mt-0.5">{cert.issuer} ({cert.date})</p>

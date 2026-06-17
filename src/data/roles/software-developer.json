@@ -105,16 +105,76 @@
   ],
   "certifications": [
     {
-      "name": "Meta Front-End Developer Professional Certificate",
-      "issuer": "Meta (Coursera)",
+      "name": "Introduction to Generative AI",
+      "issuer": "Google Cloud",
       "date": "2024",
-      "credentialId": "META-FE-998822"
+      "credentialId": "GC-GENAI-101"
     },
     {
-      "name": "AWS Certified Cloud Practitioner",
-      "issuer": "Amazon Web Services",
-      "date": "2023",
-      "credentialId": "AWS-CCP-112233"
+      "name": "Google AI-ML Virtual Internship",
+      "issuer": "Google (via EduSkills)",
+      "date": "2024",
+      "credentialId": "EDUSKILLS-2024-AI"
+    },
+    {
+      "name": "Altair Data Science Master Virtual Internship",
+      "issuer": "Altair (via EduSkills)",
+      "date": "2024",
+      "credentialId": "EDUSKILLS-2024-DS"
+    },
+    {
+      "name": "Tata GenAI-Powered Data Analytics Job Simulation",
+      "issuer": "Forage",
+      "date": "2024",
+      "credentialId": "FORAGE-TATA-24"
+    },
+    {
+      "name": "Deloitte Data Analytics Consulting Simulation",
+      "issuer": "Forage",
+      "date": "2024",
+      "credentialId": "FORAGE-DELOITTE-24"
+    },
+    {
+      "name": "Data Analytics (SQL, Power BI, Tableau)",
+      "issuer": "Tutedude",
+      "date": "2026",
+      "credentialId": "TD-DA-2026"
+    },
+    {
+      "name": "Scientific Computing with Python",
+      "issuer": "freeCodeCamp",
+      "date": "2024",
+      "credentialId": "FCC-COMP-24"
+    },
+    {
+      "name": "JavaScript Algorithms & Data Structures",
+      "issuer": "freeCodeCamp",
+      "date": "2024",
+      "credentialId": "FCC-JS-24"
+    },
+    {
+      "name": "Responsive Web Design",
+      "issuer": "freeCodeCamp",
+      "date": "2024",
+      "credentialId": "FCC-RWD-24"
+    },
+    {
+      "name": "Database & SQL Fundamentals",
+      "issuer": "Oracle Academy",
+      "date": "2024",
+      "credentialId": "ORACLE-SQL-24"
+    },
+    {
+      "name": "Network Security Associate",
+      "issuer": "Fortinet",
+      "date": "2024",
+      "credentialId": "FORTINET-NS-24"
+    },
+    {
+      "name": "Network Associate",
+      "issuer": "Juniper Networks",
+      "date": "2024",
+      "credentialId": "JUNIPER-NET-24"
     }
   ],
   "hackathons": [
