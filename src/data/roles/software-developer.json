@@ -1,0 +1,128 @@
+{
+  "id": "software-developer",
+  "name": "Pranil Belge",
+  "title": "Software Developer",
+  "roleIcon": "Code",
+  "summary": "Full-stack Software Developer focused on building clean, performance-optimized, and scalable web solutions. Skilled in modern JavaScript frameworks, TypeScript, and cloud services, with a strong background in combining AI models with web interfaces to deliver seamless user experiences.",
+  "meta": {
+    "title": "Pranil Belge | Software Developer Portfolio",
+    "description": "Explore Software Developer projects, certifications, and experience of Pranil Belge, specializing in React, TypeScript, and AI integrations.",
+    "keywords": ["Software Developer", "ReactJS", "TypeScript", "Node.js", "Vite", "Tailwind CSS", "Web Development"]
+  },
+  "skills": [
+    { "name": "ReactJS / Next.js", "category": "Frontend", "level": 92 },
+    { "name": "TypeScript", "category": "Frontend", "level": 88 },
+    { "name": "Tailwind CSS", "category": "Frontend", "level": 95 },
+    { "name": "Node.js / Express", "category": "Backend", "level": 82 },
+    { "name": "Python", "category": "Languages", "level": 80 },
+    { "name": "Firebase / Firestore", "category": "Database & Cloud", "level": 85 },
+    { "name": "RESTful APIs", "category": "Backend", "level": 90 },
+    { "name": "Git & CI/CD", "category": "DevOps", "level": 85 }
+  ],
+  "projects": [
+    {
+      "id": "election-guide-ai",
+      "title": "Election Guide AI",
+      "description": "An AI-powered political advisor and voter information platform that provides non-partisan answers on election candidates, policies, and voting procedures.",
+      "techStack": ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Gemini API"],
+      "image": "https://images.unsplash.com/photo-1540910419892-4a36d2c3266c?q=80&w=600&auto=format&fit=crop",
+      "github": "https://github.com/pranil2410/election-guide-ai",
+      "demo": "https://election-guide-ai.example.com",
+      "achievements": [
+        "Leveraged Retrieval-Augmented Generation (RAG) to serve accurate candidate policy positions.",
+        "Engineered smooth, responsive Framer Motion UI capable of low-latency chat streaming."
+      ],
+      "problemSolved": "Voters struggle to find unbiased, consolidated policy stances for local and national election candidates.",
+      "learnings": "Mastered handling real-time LLM streaming events and context-window optimization to prevent AI hallucinations."
+    },
+    {
+      "id": "dragon-repeller-rpg",
+      "title": "Dragon Repeller RPG",
+      "description": "An immersive, text-based action-adventure RPG featuring dynamic inventory management, merchant exchanges, and logic-driven turn-based combat encounters.",
+      "techStack": ["HTML5", "CSS3", "JavaScript", "Vanilla CSS", "Audio Synthesis"],
+      "image": "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?q=80&w=600&auto=format&fit=crop",
+      "github": "https://github.com/pranil2410/dragon-repeller-rpg",
+      "demo": "https://dragon-repeller-rpg.example.com",
+      "achievements": [
+        "Implemented state-management structure entirely in vanilla JavaScript.",
+        "Integrated dynamic procedurally-generated game text narratives."
+      ],
+      "problemSolved": "Designed a lightweight, browser-based gaming engine that requires no massive asset downloads and runs at 60 FPS on any device.",
+      "learnings": "Drawn deep insights into clean state management, keyboard event handling, and game loop timing in JavaScript."
+    },
+    {
+      "id": "responsive-portfolio",
+      "title": "Responsive Portfolio",
+      "description": "A high-performance personal developer portfolio demonstrating fluid fluid-grid systems, glassmorphism UI/UX design, and elegant animations.",
+      "techStack": ["React", "Vite", "Tailwind CSS", "Framer Motion", "TypeScript"],
+      "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600&auto=format&fit=crop",
+      "github": "https://github.com/pranil2410/responsive-portfolio",
+      "demo": "https://pranil-belge.vercel.app",
+      "achievements": [
+        "Obtained 95+ scores on Lighthouse audits for Performance, SEO, and Accessibility.",
+        "Responsive across all break-points from small mobile screens to 4K displays."
+      ],
+      "problemSolved": "Created a lightweight personal showcase with micro-interactions that communicate skills dynamically without heavy payload assets.",
+      "learnings": "Explored custom Tailwind utilities, hardware-accelerated CSS properties, and SVG layout design."
+    },
+    {
+      "id": "google-ads-analytics",
+      "title": "Google Ads Analytics",
+      "description": "A developer-focused performance reporting engine that retrieves Google Ads API metrics, builds interactive campaigns charts, and detects budget anomalies.",
+      "techStack": ["React", "Node.js", "Express", "Chart.js", "Google Ads API"],
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600&auto=format&fit=crop",
+      "github": "https://github.com/pranil2410/google-ads-analytics",
+      "demo": "https://ads-analytics.example.com",
+      "achievements": [
+        "Optimized API polling with a server-side caching layer, reducing API quota exhaustion by 60%.",
+        "Created an automated email alert system using SendGrid for underperforming campaigns."
+      ],
+      "problemSolved": "Marketers struggled to quickly visualize campaign trends and spot cost anomalies across hundreds of ad groups.",
+      "learnings": "Worked closely with OAuth2 flows, token refresh cycles, and complex time-series aggregation algorithms."
+    }
+  ],
+  "experience": [
+    {
+      "role": "Associate Software Engineer",
+      "company": "Cognizant Technology Solutions",
+      "period": "2023 - Present",
+      "description": "Spearheaded frontend component creation and API integrations for client applications.",
+      "achievements": [
+        "Refactored legacy React applications to TypeScript, decreasing runtime exceptions by 35%.",
+        "Cooperated with UI/UX design teams to establish reusable design system libraries, shortening UI coding cycles."
+      ]
+    },
+    {
+      "role": "Software Engineering Intern",
+      "company": "Tech Solutions Corp",
+      "period": "2022 - 2023",
+      "description": "Collaborated on testing, debugging, and adding features to React and Node.js-based SaaS backends.",
+      "achievements": [
+        "Wrote 80+ unit tests with Jest, increasing project test coverage from 65% to 88%.",
+        "Accelerated page load times by implementing lazy loading for large project modules."
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Meta Front-End Developer Professional Certificate",
+      "issuer": "Meta (Coursera)",
+      "date": "2024",
+      "credentialId": "META-FE-998822"
+    },
+    {
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "date": "2023",
+      "credentialId": "AWS-CCP-112233"
+    }
+  ],
+  "hackathons": [
+    {
+      "name": "Global WebDev Hackathon",
+      "project": "VoterGuide Portal",
+      "prize": "Top 10 Finalist",
+      "description": "Built a responsive election tracker under 48 hours serving localized voter advice."
+    }
+  ]
+}

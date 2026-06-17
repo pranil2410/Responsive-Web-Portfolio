@@ -1,0 +1,140 @@
+{
+  "id": "data-analyst",
+  "name": "Pranil Belge",
+  "title": "Data Analyst",
+  "roleIcon": "BarChart2",
+  "summary": "Results-driven Data Analyst specialized in translating complex raw datasets into actionable commercial insights. Expert in writing advanced SQL queries, developing Python data pipelines, and designing interactive Power BI and Tableau dashboards that drive strategic decision-making and operational efficiency.",
+  "meta": {
+    "title": "Pranil Belge | Data Analyst Portfolio",
+    "description": "Explore Data Analyst dashboards, SQL data pipelines, and case studies of Pranil Belge, specializing in Power BI, SQL, Python, and Tableau.",
+    "keywords": ["Data Analyst", "Power BI", "SQL", "Python", "Tableau", "EDA", "Data Visualization", "Business Intelligence"]
+  },
+  "skills": [
+    { "name": "SQL (PostgreSQL / BigQuery)", "category": "Data & Querying", "level": 94 },
+    { "name": "Python (Pandas / NumPy / Seaborn)", "category": "Programming & Pipelines", "level": 90 },
+    { "name": "Power BI & DAX", "category": "BI & Visualization", "level": 92 },
+    { "name": "Tableau", "category": "BI & Visualization", "level": 85 },
+    { "name": "Excel (VBA / Power Query)", "category": "Data & Querying", "level": 88 },
+    { "name": "Statistical Analysis & Hypothesis Testing", "category": "Languages", "level": 80 },
+    { "name": "ETL Pipelines", "category": "Programming & Pipelines", "level": 85 },
+    { "name": "Data Warehousing", "category": "Data & Querying", "level": 78 }
+  ],
+  "projects": [
+    {
+      "id": "ecommerce-dashboard",
+      "title": "E-Commerce Executive Dashboard",
+      "description": "A comprehensive, multi-page Power BI dashboard providing real-time visibility into global sales metrics, regional profitability, return rates, and customer acquisition costs.",
+      "techStack": ["Power BI", "DAX", "SQL", "Excel", "Data Modeling"],
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop",
+      "github": "https://github.com/pranil2410/ecommerce-dashboard",
+      "demo": "https://powerbi.example.com/ecommerce-dashboard",
+      "achievements": [
+        "Constructed custom DAX measures for Year-over-Year (YoY) growth tracking and dynamic forecasting.",
+        "Redesigned the star schema database schema to improve dashboard refresh rates by 50%."
+      ],
+      "problemSolved": "E-commerce executives lacked a unified dashboard to trace daily sales targets vs. actuals across multiple channels.",
+      "learnings": "Discovered the power of clean star schemas and optimized DAX queries to avoid performance bottlenecks on massive datasets."
+    },
+    {
+      "id": "healthcare-risk",
+      "title": "Healthcare Risk Stratification Model",
+      "description": "A predictive data analysis project analyzing patient records to classify high-risk chronic patients, optimizing hospital resource allocation and preventive care delivery.",
+      "techStack": ["Python", "Pandas", "Scikit-Learn", "Matplotlib", "SQL"],
+      "image": "https://images.unsplash.com/photo-1530026405186-ed1ea0ac7a63?q=80&w=600&auto=format&fit=crop",
+      "github": "https://github.com/pranil2410/healthcare-risk",
+      "demo": "https://healthcare-risk.example.com",
+      "achievements": [
+        "Developed a custom risk score that accurately identified 85% of potential readmissions within 30 days.",
+        "Automated the ETL pipeline to pull clinical data from EHR databases weekly."
+      ],
+      "problemSolved": "Hospitals waste resources on reactive care; stratifying patient risk allows proactive, targeted clinical outreach.",
+      "learnings": "Learned the importance of handling imbalanced medical datasets using SMOTE and validating features with clinical specialists."
+    },
+    {
+      "id": "google-ads-analysis",
+      "title": "Google Ads Performance Audit",
+      "description": "A deep-dive statistical analysis of ad-spend effectiveness, CTR correlations, and conversion attribution paths to optimize marketing ROI.",
+      "techStack": ["Python", "Jupyter Notebook", "Seaborn", "Statsmodels", "SQL"],
+      "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=600&auto=format&fit=crop",
+      "github": "https://github.com/pranil2410/google-ads-analysis",
+      "demo": "https://google-ads-analysis.example.com",
+      "achievements": [
+        "Discovered a $15K monthly leakage in broad-match keyword bidding through statistical anomaly detection.",
+        "Delivered interactive presentation slides to stakeholders resulting in a 20% marketing budget reallocation."
+      ],
+      "problemSolved": "Ad spend efficiency was obscured by aggregate-level reporting; page-level search query analysis was needed.",
+      "learnings": "Learned to perform cohort analysis and multi-touch attribution modeling in Python."
+    },
+    {
+      "id": "eda-pipeline",
+      "title": "Automated EDA Pipeline",
+      "description": "A reusable command-line utility and Jupyter library that reads CSV/Parquet files and auto-generates comprehensive HTML exploratory data analysis reports.",
+      "techStack": ["Python", "Pandas-Profiling", "Jupyter", "HTML5"],
+      "image": "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=600&auto=format&fit=crop",
+      "github": "https://github.com/pranil2410/eda-pipeline",
+      "demo": "https://eda-pipeline.example.com",
+      "achievements": [
+        "Shortened the initial data discovery phase for new analytics projects from 2 days to 10 minutes.",
+        "Built automatic detection for multi-collinearity, null percentages, and data distribution shapes."
+      ],
+      "problemSolved": "Analysts spend too much repetitive time writing boilerplate data exploration code for every new CSV.",
+      "learnings": "Gained a deep understanding of data quality diagnostics, distribution testing, and automated PDF/HTML document synthesis."
+    }
+  ],
+  "dashboardGallery": [
+    {
+      "title": "E-Commerce Global Performance Dashboard",
+      "platform": "Power BI",
+      "embedUrl": "https://app.powerbi.com/view?r=eyJrIjoiTWOCK_EMBED_FOR_DEMO",
+      "description": "Track revenue, orders, profit margin, and top products. Features dynamic custom slicers for regions and months.",
+      "screenshot": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop"
+    },
+    {
+      "title": "Healthcare Readmissions Insights Hub",
+      "platform": "Tableau",
+      "embedUrl": "https://public.tableau.com/views/MockHealthcareReadmissions",
+      "description": "A map-based dashboard illustrating patient demographics, length of stay, and readmission risk patterns by city.",
+      "screenshot": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=600&auto=format&fit=crop"
+    }
+  ],
+  "caseStudies": [
+    {
+      "title": "Reducing Customer Churn in SaaS",
+      "background": "A SaaS startup noticed an increasing churn rate (reaching 8% monthly) but didn't know the exact drivers.",
+      "methodology": "Conducted SQL cohort analysis, combined billing data with in-app engagement metrics in Python, and ran a logistic regression model to identify key churn indicators.",
+      "results": "Identified that users with less than 3 login sessions in their first week had an 80% likelihood of churn. Recommended a targeted onboarding email sequence, reducing churn to 4.2% in 90 days."
+    },
+    {
+      "title": "Optimizing Supply Chain Logistics",
+      "background": "A regional retailer faced increasing delivery delays and warehouse bottleneck costs.",
+      "methodology": "Merged carrier transit times, warehouse inventory levels, and order records using BigQuery SQL, creating a bottleneck locator model in Python.",
+      "results": "Discovered that a single carrier was responsible for 70% of delayed shipments in the Northeast region. Recommended shifting to a multi-carrier model, improving on-time deliveries by 18%."
+    }
+  ],
+  "experience": [
+    {
+      "role": "Data Analyst",
+      "company": "Cognizant Technology Solutions",
+      "period": "2023 - Present",
+      "description": "Designed dashboards and analytics pipelines to translate product performance data for stakeholders.",
+      "achievements": [
+        "Engineered automated ETL pipelines in SQL/BigQuery, eliminating 15 hours of manual weekly reporting.",
+        "Built executive dashboards viewed weekly by regional VPs, supporting key product prioritization decisions."
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "Google Data Analytics Professional Certificate",
+      "issuer": "Google (Coursera)",
+      "date": "2023",
+      "credentialId": "GOOG-DA-776655"
+    },
+    {
+      "name": "Microsoft Certified: Power BI Data Analyst Associate",
+      "issuer": "Microsoft",
+      "date": "2024",
+      "credentialId": "MSFT-PL300-88992"
+    }
+  ]
+}
