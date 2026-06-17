@@ -85,18 +85,32 @@
   ],
   "dashboardGallery": [
     {
-      "title": "E-Commerce Global Sales Dashboard",
+      "title": "Zomato Analytics",
       "platform": "Power BI",
-      "embedUrl": "https://app.powerbi.com/view?r=eyJrIjoiTWOCK_EMBED_FOR_DEMO",
-      "description": "Track dynamic revenue trends, order distributions, and regional margins.",
-      "screenshot": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop"
+      "embedUrl": "https://app.powerbi.com/view?r=eyJrIjoiZomatoMockEmbed",
+      "description": "Interactive Data Analysis & Business Insights analyzing restaurant listings, ratings, votes, and average costs.",
+      "screenshot": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=600&auto=format&fit=crop",
+      "metrics": [
+        { "label": "Restaurants", "value": "26K" },
+        { "label": "Avg Rating", "value": "3.67" },
+        { "label": "Total Votes", "value": "7M" },
+        { "label": "Avg Cost", "value": "553.00" }
+      ],
+      "chartData": [30, 45, 65, 50, 75, 95]
     },
     {
-      "title": "Healthcare Patients Insights Hub",
-      "platform": "Tableau",
-      "embedUrl": "https://public.tableau.com/views/MockHealthcareReadmissions",
-      "description": "Visualizes patient length of stay, demographic maps, and readmission risk patterns.",
-      "screenshot": "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=600&auto=format&fit=crop"
+      "title": "Executive E-Commerce Dashboard",
+      "platform": "Power BI",
+      "embedUrl": "https://app.powerbi.com/view?r=eyJrIjoiEcomMockEmbed",
+      "description": "Developed an interactive 3-page Power BI dashboard analyzing the Sample Superstore E-Commerce dataset.",
+      "screenshot": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop",
+      "metrics": [
+        { "label": "Total Sales", "value": "887.92K" },
+        { "label": "Total Profit", "value": "108.80K" },
+        { "label": "Total Orders", "value": "2K" },
+        { "label": "Profit Margin", "value": "12.25%" }
+      ],
+      "chartData": [45, 30, 55, 75, 60, 85]
     }
   ],
   "caseStudies": [

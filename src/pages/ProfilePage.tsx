@@ -465,32 +465,28 @@ export const ProfilePage: React.FC = () => {
                               <span className="text-[10px] text-muted-foreground font-mono">Status: Connected</span>
                             </div>
                             
-                            {/* A mockup of a dashboard utilizing metrics charts */}
                             <div className="space-y-3 p-1">
-                              <div className="grid grid-cols-3 gap-2">
-                                <div className="p-2 rounded bg-black/30 text-center border border-border/20">
-                                  <span className="text-[9px] text-muted-foreground uppercase">Revenue</span>
-                                  <div className="font-bold text-foreground mt-0.5">$1.2M</div>
+                              {dash.metrics && (
+                                <div className={`grid ${dash.metrics.length === 4 ? 'grid-cols-4' : 'grid-cols-3'} gap-2`}>
+                                  {dash.metrics.map((metric, mIdx) => (
+                                    <div key={mIdx} className="p-2 rounded bg-black/30 text-center border border-border/20">
+                                      <span className="text-[9px] text-muted-foreground uppercase block truncate">{metric.label}</span>
+                                      <div className="font-bold text-foreground mt-0.5 text-[10px] md:text-xs truncate">{metric.value}</div>
+                                    </div>
+                                  ))}
                                 </div>
-                                <div className="p-2 rounded bg-black/30 text-center border border-border/20">
-                                  <span className="text-[9px] text-muted-foreground uppercase">Growth YoY</span>
-                                  <div className="font-bold text-emerald-400 mt-0.5">+24.5%</div>
-                                </div>
-                                <div className="p-2 rounded bg-black/30 text-center border border-border/20">
-                                  <span className="text-[9px] text-muted-foreground uppercase">Active Cust</span>
-                                  <div className="font-bold text-foreground mt-0.5">14,291</div>
-                                </div>
-                              </div>
+                              )}
                               
-                              <div className="h-16 rounded bg-black/30 border border-border/20 flex flex-col justify-end p-1.5">
-                                <span className="text-[9px] text-muted-foreground absolute top-1.5">Monthly Sales trend</span>
+                              <div className="h-16 rounded bg-black/30 border border-border/20 flex flex-col justify-end p-1.5 relative">
+                                <span className="text-[9px] text-muted-foreground absolute top-1.5 left-1.5">Performance Analysis Trend</span>
                                 <div className="flex items-end justify-between h-8 gap-1 pt-2">
-                                  <div className="h-3 w-full bg-purple-500/80 rounded-t"></div>
-                                  <div className="h-4 w-full bg-purple-500/80 rounded-t"></div>
-                                  <div className="h-6 w-full bg-purple-500/80 rounded-t"></div>
-                                  <div className="h-5 w-full bg-purple-500/80 rounded-t"></div>
-                                  <div className="h-7 w-full bg-purple-500/80 rounded-t"></div>
-                                  <div className="h-8 w-full bg-gradient-to-t from-purple-500 to-pink-500 rounded-t"></div>
+                                  {(dash.chartData || [30, 45, 60, 50, 70, 90]).map((val, cIdx) => (
+                                    <div 
+                                      key={cIdx} 
+                                      className={`w-full rounded-t ${cIdx === 5 ? 'bg-gradient-to-t from-purple-500 to-pink-500' : 'bg-purple-500/80'}`}
+                                      style={{ height: `${val}%` }}
+                                    ></div>
+                                  ))}
                                 </div>
                               </div>
                             </div>

@@ -65,6 +65,8 @@ export interface RoleConfig {
     embedUrl: string;
     description: string;
     screenshot?: string;
+    metrics?: Array<{ label: string; value: string }>;
+    chartData?: number[];
   }>;
   caseStudies?: Array<{
     title: string;
