@@ -190,103 +190,68 @@ export const ProfilePage: React.FC = () => {
         </GlassCard>
       </section>
 
-      {/* Grid: Skills & Experience */}
-      <section className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 mb-12">
-        {/* Left Side: Skills & Certifications */}
-        <div className="md:col-span-5 flex flex-col gap-6">
+      {/* Grid: Skills & Certifications */}
+      <section className="max-w-5xl mx-auto mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           {/* Skills progress section */}
-          <GlassCard hoverScale={false}>
-            <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
-              <Icons.Cpu className="w-5 h-5 text-purple-400" /> Expertise Matrix
-            </h3>
-            
-            <div className="space-y-4">
-              {role.skills.map((skill, index) => (
-                <div key={index} className="space-y-1.5">
-                  <div className="flex items-center justify-between text-xs font-medium">
-                    <span className="text-foreground">{skill.name}</span>
-                    <span className="text-muted-foreground">{skill.level}%</span>
-                  </div>
-                  <div className="w-full h-1.5 bg-secondary/40 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, ease: "easeOut" }}
-                      className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </GlassCard>
-
-          {/* Certifications list */}
-          {role.certifications && role.certifications.length > 0 && (
-            <GlassCard hoverScale={false}>
-              <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
-                <Icons.Award className="w-5 h-5 text-purple-400" /> Certifications
+          <div className="md:col-span-6">
+            <GlassCard hoverScale={false} className="h-full">
+              <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
+                <Icons.Cpu className="w-5 h-5 text-purple-400" /> Expertise Matrix
               </h3>
+              
               <div className="space-y-4">
-                {role.certifications.map((cert, idx) => (
-                  <div key={idx} className="p-3 rounded-xl border border-border/40 bg-secondary/15 flex items-start gap-3">
-                    <Icons.FileBadge className="w-5 h-5 text-purple-400 mt-0.5 shrink-0" />
-                    <div>
-                      <h4 className="text-xs font-bold text-foreground">{cert.name}</h4>
-                      <p className="text-[11px] text-muted-foreground mt-0.5">{cert.issuer} ({cert.date})</p>
-                      {cert.credentialId && (
-                        <p className="text-[10px] text-muted-foreground font-mono mt-1">ID: {cert.credentialId}</p>
-                      )}
+                {role.skills.map((skill, index) => (
+                  <div key={index} className="space-y-1.5">
+                    <div className="flex items-center justify-between text-xs font-medium">
+                      <span className="text-foreground">{skill.name}</span>
+                      <span className="text-muted-foreground">{skill.level}%</span>
+                    </div>
+                    <div className="w-full h-1.5 bg-secondary/40 rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                        className="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full"
+                      />
                     </div>
                   </div>
                 ))}
               </div>
             </GlassCard>
-          )}
-        </div>
+          </div>
 
-        {/* Right Side: Timeline / Experience */}
-        <div className="md:col-span-7">
-          <GlassCard hoverScale={false} className="h-full">
-            <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
-              <Icons.Briefcase className="w-5 h-5 text-purple-400" /> Career Journey
-            </h3>
-
-            {role.experience && role.experience.length > 0 ? (
-              <div className="relative border-l-2 border-border/60 ml-2.5 pl-6 space-y-8 py-2">
-                {role.experience.map((exp, idx) => (
-                  <div key={idx} className="relative">
-                    {/* Timeline Node */}
-                    <span className="absolute -left-[31px] top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-background border-2 border-purple-500">
-                      <span className="h-1.5 w-1.5 rounded-full bg-purple-500" />
-                    </span>
-                    
-                    <div className="space-y-1">
-                      <span className="text-[10px] font-mono font-bold text-purple-400 uppercase">
-                        {exp.period}
-                      </span>
-                      <h4 className="text-sm font-bold text-foreground">{exp.role}</h4>
-                      <p className="text-xs font-medium text-muted-foreground">{exp.company}</p>
-                      <p className="text-xs text-muted-foreground/90 mt-2 leading-relaxed">
-                        {exp.description}
-                      </p>
-                      {exp.achievements && exp.achievements.length > 0 && (
-                        <ul className="list-disc list-outside pl-4 space-y-1 text-xs text-muted-foreground mt-3 leading-relaxed">
-                          {exp.achievements.map((ach, aIdx) => (
-                            <li key={aIdx}>{ach}</li>
-                          ))}
-                        </ul>
-                      )}
+          {/* Certifications list */}
+          <div className="md:col-span-6">
+            {role.certifications && role.certifications.length > 0 ? (
+              <GlassCard hoverScale={false} className="h-full">
+                <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
+                  <Icons.Award className="w-5 h-5 text-purple-400" /> Certifications
+                </h3>
+                <div className="space-y-4">
+                  {role.certifications.map((cert, idx) => (
+                    <div key={idx} className="p-3 rounded-xl border border-border/40 bg-secondary/15 flex items-start gap-3">
+                      <Icons.FileBadge className="w-5 h-5 text-purple-400 mt-0.5 shrink-0" />
+                      <div>
+                        <h4 className="text-xs font-bold text-foreground">{cert.name}</h4>
+                        <p className="text-[11px] text-muted-foreground mt-0.5">{cert.issuer} ({cert.date})</p>
+                        {cert.credentialId && (
+                          <p className="text-[10px] text-muted-foreground font-mono mt-1">ID: {cert.credentialId}</p>
+                        )}
+                      </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              </GlassCard>
             ) : (
-              <p className="text-sm text-muted-foreground text-center py-8">
-                No experience details loaded.
-              </p>
+              <GlassCard hoverScale={false} className="h-full flex flex-col justify-center items-center text-center p-6">
+                <Icons.Award className="w-12 h-12 text-muted-foreground/40 mb-3" />
+                <h4 className="text-sm font-bold text-foreground">Certifications</h4>
+                <p className="text-xs text-muted-foreground mt-1">Professional certifications will be listed here.</p>
+              </GlassCard>
             )}
-          </GlassCard>
+          </div>
         </div>
       </section>
 
